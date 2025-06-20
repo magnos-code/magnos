@@ -1,0 +1,2 @@
+[tool.autoapi]
+override_package_name = ""

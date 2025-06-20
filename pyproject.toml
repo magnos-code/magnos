@@ -1,0 +1,30 @@
+[build-system]
+requires = [
+    "setuptools>=61.0",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "magnos"
+version = "1.0.0"
+requires-python = ">=3.12"
+description = """
+Magnos is a general, scalable Python code to simulate magnon bandstructures from spin structures and exchange coupling constants.
+It is based on linear spin wave theory and uses the rotated frame approach to model collinear and non-collinear magnetic insulators.
+"""
+readme = "README.rst"
+authors = [
+    { name = "Alex Moorhouse", email = "aem228@cam.ac.uk"},
+    { name = "Joseph Barker", email = "j.barker@leeds.ac.uk"},
+    { name = "Michele Simoncelli", email = "michele.simoncelli@columbia.edu"}
+]
+dependencies = [
+    "numpy>=2.0",
+    "matplotlib>=3.9.2",
+    "spglib>=2.5",
+    "ase>=3.23",
+    "pytest>=7"
+]
+
+license-files = ["LICENSE"]

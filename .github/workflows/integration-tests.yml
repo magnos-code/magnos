@@ -1,0 +1,37 @@
+name: Integration Tests
+
+on:
+  workflow_dispatch: # Allow manual triggering of the workflow
+  push:
+    branches:
+      - main
+      - repo-tidy
+  pull_request:
+    branches:
+      - main
+      - repo-tidy
+
+jobs:
+  integration-tests:
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Cache pip downloads
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt', 'pyproject.toml', 'setup.py') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install with pip
+        shell: bash -l {0}
+        run: |
+          pip install .
+
+      - name: Run tests
+        run: pytest tests/CrPS4/
+
+
