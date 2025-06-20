@@ -2,14 +2,14 @@ Magnos: Magnon Bandstructures in Python
 =======================================
 
 **Magnos** is a Python library for calculating magnon bandstructures from exchange coupling interactions. It is designed
-to be intuitive and easy-to-use so that you can spend less time *calculating* bandstructures and more time *using* them
+to be intuitive and easy to use so that you can spend less time *calculating* bandstructures and more time *using* them
 to do interesting science.
 
 Bandstructures in under 10 lines of code
 ----------------------------------------
 
-It should be extremely easy to take exchange coupling data from the literature and reproduce the magnon bandstructure. Using
-Magnos, the simple script below can be used to obtain the bandstructure of BCC iron in the primitive cell.
+It is straigthforwaed to take exchange coupling data from the literature and reproduce the corresponding magnon bandstructure. Using
+Within Magnos, the simple script below can be used to obtain the bandstructure of BCC iron.
 
 .. code-block::
 
@@ -34,26 +34,26 @@ Magnos, the simple script below can be used to obtain the bandstructure of BCC i
 Why use Magnos?
 ---------------
 
-Our core development principles are:
+The core features of Magnos are:
 
-* **Easy to use** - Magnon bandstructures can be computed using less than 10 lines of Python code!
-* **Scaleable** - For handling complex cells, symmetries, and couplings.
-* **Integrated** - Interfaces with tools such as ASE to accelerate scientific workflows. The MagnonSpectrum class mirrors the structure of ASE's Phonons class.
-* **Adaptable** - Allows conventions for working with dimensionless or dimensionful magnetic moments, different Hamiltonian conventions, many input formats.
+* **Easy to use** - Magnon bandstructures can be computed using less than 10 lines of Python code.
+* **Scalable** - Handles arbitrarily complex atomistic structures using an efficient description of exchange couplings and symmetries
+* **Integrated** - Interfaces with tools such as the Atomic Simulation Environment (ASE) to accelerate scientific workflows. The MagnonSpectrum class introduced in Magnos mirrors the widely used ASE Phonons class.
+* **Adaptable** - Allows conventions for working with dimensionless or dimensional magnetic moments, different Hamiltonian conventions, many standard input formats.
 * **Open** - Built for collaboration.
 
 The code offers:
 
-* ASE-enabled reading of many widely used structure file formats
-* Ability to read complex exchange interaction data, and rigorously check symmetry requirements
-* Option to easily augment non-magnetic structure files with a magnetic moment data file
-* Rapid set-up routine by simultaneously reading structural, magnetic and coupling data
+* ASE-enabled reading of many widely used atomic-structure file formats
+* Ability to read exchange interaction data, and inspect their symmetries
+* Option to easily augment non-magnetic atomic-structure files with a magnetic moment data file
+* Rapid set-up routine by simultaneously reading structural, magnetic and exchange-coupling data
 * Powerful InteractionList class for working efficiently with exchange coupling data at scale
 * In-built symmetrisation routines for generating full exchange couplings from a minimal description
-* Unit cell standardisation to convert couplings to those of the primitive cell
+* Standardisation of couplings from arbitrary unit cell to standardized primitive cell
 * Supports ferromagnetic, antiferromagnetic and non-collinear spin configurations
-* Adapts to different conventions for the Heisenberg Hamiltonian prefactor
-* Able to convert from exchange couplings from unit vector spin models
+* Supports multiple standard conventions for describing the Heisenberg Hamiltonian
+* Conversion of exchange couplings used within linear spin wave theory and semiquantum spin dynamics
 * Integrated MagnonSpectrum class for easy generation of reciprocal space paths and their bandstructures. Built with the same structure as the ASE Phonons class.
 
 
