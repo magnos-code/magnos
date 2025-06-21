@@ -8,8 +8,8 @@ to do interesting science.
 Bandstructures in under 10 lines of code
 ----------------------------------------
 
-It is straigthforwaed to take exchange coupling data from the literature and reproduce the corresponding magnon bandstructure. Using
-Within Magnos, the simple script below can be used to obtain the bandstructure of BCC iron.
+It is straigthforwaed to take exchange coupling data from the literature and reproduce the corresponding magnon bandstructure.
+Using Magnos, the simple script below can be used to obtain the bandstructure of BCC iron.
 
 .. code-block::
 
@@ -37,7 +37,7 @@ Why use Magnos?
 The core features of Magnos are:
 
 * **Easy to use** - Magnon bandstructures can be computed using less than 10 lines of Python code.
-* **Scalable** - Handles arbitrarily complex atomistic structures using an efficient description of exchange couplings and symmetries
+* **Scalable** - Handles arbitrarily complex atomistic structures using an efficient description of exchange couplings and symmetries.
 * **Integrated** - Interfaces with tools such as the Atomic Simulation Environment (ASE) to accelerate scientific workflows. The MagnonSpectrum class introduced in Magnos mirrors the widely used ASE Phonons class.
 * **Adaptable** - Allows conventions for working with dimensionless or dimensional magnetic moments, different Hamiltonian conventions, many standard input formats.
 * **Open** - Built for collaboration.
