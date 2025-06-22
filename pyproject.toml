@@ -1,0 +1,27 @@
+[build-system]
+requires = [
+    "setuptools>=61.0",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "magnos"
+version = "1.0.0"
+requires-python = ">=3.12"
+description = """
+Magnos is coming soon.
+"""
+readme = "README.rst"
+authors = [
+    { name = "Alex Moorhouse", email = "aem228@cam.ac.uk"},
+]
+dependencies = [
+    "numpy>=2.0",
+    "matplotlib>=3.9.2",
+    "spglib>=2.5",
+    "ase>=3.23",
+    "pytest>=7"
+]
+
+license-files = ["LICENSE"]

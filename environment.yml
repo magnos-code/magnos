@@ -1,0 +1,11 @@
+name: magnos
+channels:
+  - conda-forge
+dependencies:
+  - python=3.13
+  - numpy=2.1
+  - matplotlib=3.9.2
+  - ase=3.23
+  - spglib=2.5
+  - sphinx-autoapi=3.6.0
+  - sphinxcontrib-bibtex=2.6.4
