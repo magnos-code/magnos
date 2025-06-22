@@ -52,4 +52,4 @@ mathjax3_config = {
 napoleon_google_docstring = True
 
 
-html_static_path = ['source/_static']
+#html_static_path = ['source/_static']
