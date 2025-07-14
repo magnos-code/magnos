@@ -43,7 +43,7 @@ For an electron orbiting an atom once every :math:`T` seconds at a distance :mat
 
    I = \frac{e}{T} = \frac{ev}{2\pi r}
 
-with :math:`e` the electron charge. The area enclosed is :math:`\pi r^2`, so the magnetic moment :math:`\boldsymbol{\mu}` due to the orbital motion is
+with :math:`e` the electron charge. The area enclosed is :math:`\pi r^2`, so the magnetic moment :math:`\bm{\mu}` due to the orbital motion is
 
 .. math::
    :label: electron_orbits_moment
