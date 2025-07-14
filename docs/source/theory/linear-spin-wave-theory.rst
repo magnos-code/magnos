@@ -7,7 +7,7 @@ Heisenberg Hamiltonian
 General Heisenberg Hamiltonian
 +++++++++++++++++++++++++++++++
 
-The starting point to describe magnon excitations is the Heisenberg Hamiltonian written in general form (applicable to any material), 
+The starting point to describe magnon excitations is the Heisenberg Hamiltonian written in a general form (applicable to any material),
 
 .. math::
    :label: general_heisenberg_hamiltonian
