@@ -3,7 +3,7 @@ Theory
 
 Magnon is a Python package for the quantitative simulation of magnons, i.e., quantized spin-wave excitations representing the coherent precession of spins around their equilibrium direction.
 
-In crystalline magnetic solids, magnons can be described using the second-quantization formalism. In particular, magnon creation and annihilation operators are labeled by: (i) a wavevector that characterizes the spin wave; and (ii) a band index, which distinguishes between different excitation patterns in crystals with multiple magnetic sites in the primitive cell.
+In crystalline magnetic solids, magnons can be described using the second-quantization formalism. In particular, magnon creation and annihilation operators are labeled by: (i) a wavevector that characterizes the periodicity of the spin wave; and (ii) a band index, which distinguishes between different excitation patterns in crystals with multiple magnetic sites in the primitive cell.
 
 Suggested reading
 -----------------
@@ -23,7 +23,7 @@ In the 'Background' section, we summarize the origins of angular momentum in ato
 
 In the 'Linear Spin Wave Theory' section, we derive the general form of the Heisenberg Hamiltonian used by Magnon, and discuss all the steps necessary to diagonalize it and obtain the magnon bandstructure.
 
-After discussing the basic theoretical details, we will present several hands-on tutorials of progressive level of difficulty.
+After discussing the basic theoretical details, we will present several hands-on tutorials.
 
 .. toctree::
    :maxdepth: 1

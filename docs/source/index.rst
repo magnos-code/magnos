@@ -1,4 +1,4 @@
-Magnon: Magnon Bandstructures in Python
+Magnon Bandstructures in Python
 =======================================
 
 **Magnon** is a Python library for calculating magnon bandstructures from exchange coupling interactions. It is designed
@@ -8,7 +8,7 @@ to do interesting science.
 Bandstructures in under 10 lines of code
 ----------------------------------------
 
-It is straigthforwaed to take exchange coupling data from the literature and reproduce the corresponding magnon bandstructure.
+It is straigthforward to take exchange coupling data from the literature and reproduce the corresponding magnon bandstructure.
 Using Magnon, the simple script below can be used to obtain the bandstructure of BCC iron.
 
 .. code-block::
@@ -37,24 +37,24 @@ Why use Magnon?
 The core features of Magnon are:
 
 * **Easy to use** - Magnon bandstructures can be computed using less than 10 lines of Python code.
-* **Scalable** - Handles arbitrarily complex atomistic structures using an efficient description of exchange couplings and symmetries.
-* **Integrated** - Interfaces with tools such as the Atomic Simulation Environment (ASE) to accelerate scientific workflows. The MagnonSpectrum class introduced in Magnon mirrors the widely used ASE Phonons class.
-* **Adaptable** - Allows conventions for working with dimensionless or dimensional magnetic moments, different Hamiltonian conventions, many standard input formats.
+* **Scalable** - Handles arbitrarily-complex atomistic structures using an efficient description of exchange couplings and symmetries.
+* **Integrated** - Interfaces with tools such as the Atomic Simulation Environment (ASE) to accelerate scientific workflows. The MagnonSpectrum class introduced in Magnon mirrors the widely-used ASE Phonons class.
+* **Adaptable** - Allows conventions for working with dimensionless or dimensional magnetic moments, different Hamiltonian conventions, and many standard input formats.
 * **Open** - Built for collaboration.
 
 The code offers:
 
-* ASE-enabled reading of many widely used atomic-structure file formats
-* Ability to read exchange interaction data, and inspect their symmetries
-* Option to easily augment non-magnetic atomic-structure files with a magnetic moment data file
-* Rapid set-up routine by simultaneously reading structural, magnetic and exchange-coupling data
-* Powerful InteractionList class for working efficiently with exchange coupling data at scale
+* ASE-enabled reading of many widely-used atomic structure file formats
+* The ability to read exchange interaction data, and inspect their symmetries
+* The option to easily augment non-magnetic atomic structure files with a magnetic moment data file
+* A rapid set-up routine by simultaneously reading structural, magnetic and exchange-coupling data
+* The powerful InteractionList class for working efficiently with exchange coupling data at scale
 * In-built symmetrisation routines for generating full exchange couplings from a minimal description
-* Standardisation of couplings from arbitrary unit cell to standardized primitive cell
-* Supports ferromagnetic, antiferromagnetic, and non-collinear spin configurations
-* Supports multiple standard conventions for describing the Heisenberg Hamiltonian
-* Conversion of exchange couplings used within linear spin wave theory and semiquantum spin dynamics
-* Integrated MagnonSpectrum class for easy generation of reciprocal space paths and their bandstructures. Built with the same structure as the ASE Phonons class.
+* Standardisation of couplings from arbitrary unit cells to standardized primitive cell
+* Support for ferromagnetic, antiferromagnetic, and non-collinear spin configurations
+* Support for multiple standard conventions for describing the Heisenberg Hamiltonian
+* The ability to convert between exchange couplings used within linear spin wave theory and semiquantum spin dynamics
+* An integrated MagnonSpectrum class for easy generation of reciprocal space paths and their bandstructures. Built with the same structure as the ASE Phonons class.
 
 
 

@@ -26,7 +26,7 @@ There are two sources of magnetic moment in atoms. The first is the **orbital an
 To understand the origin of the electronic orbital angular momentum, we start considering a classical charged particle moving at constant velocity along a circular orbit.
 The magnitude of the magnetic moment is determined by: :cite:`griffiths_EM`
 
-1. The rate at which the electron orbits the atom, which effectively is an electric current.
+1. The rate at which the electron orbits the atom, which is effectively an electric current.
 2. The size (radius) of the orbit.
 
 
@@ -43,12 +43,12 @@ For an electron orbiting an atom once every :math:`T` seconds at a distance :mat
 
    I = \frac{e}{T} = \frac{ev}{2\pi r}
 
-with :math:`e` the electron charge. The area enclosed is :math:`\pi r^2`, so the size of the magnetic moment :math:`\mu` due to the orbital motion is
+with :math:`e` the electron charge. The area enclosed is :math:`\pi r^2`, so the magnetic moment :math:`\boldsymbol{\mu}` due to the orbital motion is
 
 .. math::
    :label: electron_orbits_moment
 
-   \mathbf{\mu} = I\cdot \mathbf{A}= \frac{e\mathbf{r}\times\mathbf{v} }{2}.
+   \mathbf{\mu} = I\mathbf{A}= \frac{e\mathbf{r}\times\mathbf{v} }{2}.
 
 The orbital angular momentum is defined as :math:`\mathbf{L} = m \mathbf{r}\times \mathbf{v}`, so
 
