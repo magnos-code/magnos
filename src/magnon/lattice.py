@@ -2,8 +2,8 @@ import numpy as np
 import numpy.linalg as npla
 from numpy.typing import ArrayLike
 
-import magnos
-from magnos.common import default_distance_tol, normalize_scaled_coordinate
+import magnon
+from magnon.common import default_distance_tol, normalize_scaled_coordinate
 
 
 

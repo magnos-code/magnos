@@ -117,13 +117,13 @@ Initialize
 
 .. code-block:: python
 
-   import magnos
+   import magnon
 
 
 Structure Inputs
 ----------------
 
-Magnos makes good use of ASE, and this includes its I/O capabilities. The unit cell structure
+Magnon makes good use of ASE, and this includes its I/O capabilities. The unit cell structure
 can be read directly into an Atoms object using e.g. :code:`ase.io.read()` with any of the standard structure file formats allowed by that function.
 In this example, we read from a POSCAR file :code:`FeGd.poscar`:
 
@@ -145,7 +145,7 @@ In this example, we read from a POSCAR file :code:`FeGd.poscar`:
    atoms = ase.io.read("FeGd.poscar")
 
 Since not all of these file formats will allow the inclusion of magnetic moment information, and to allow flexibility in
-the set-up of these quantities, the magnetic moments may be read in from a separate file using :code:`magnos.input.read_site_spin_data`,
+the set-up of these quantities, the magnetic moments may be read in from a separate file using :code:`magnon.input.read_site_spin_data`,
 which takes a file containing the magnitudes and directions of the magnetic moments, :code:`FeGd_moments`,
 
 .. code-block:: text
@@ -156,7 +156,7 @@ which takes a file containing the magnitudes and directions of the magnetic mome
 
 .. code-block::
 
-   magmoms, directions = magnos.input.read_site_spin_data("FeGd_moments")
+   magmoms, directions = magnon.input.read_site_spin_data("FeGd_moments")
    atoms.set_initial_magnetic_moments(magmoms[:, np.newaxis] * directions)
 
 The spin quantum number or magnetic moment may be specified by changing the *magmom_scaling* factor. To specify magnetic moments in
@@ -175,16 +175,16 @@ The exchange coupling may be imported from a file :code:`FeGd_exchange` with the
      1 2  0.5 0.5 0.5  -2
 
 This format matches that returned by many codes used to compute exchange couplings. This is read in the form required to initialise an :code:`InteractionList` via
-:code:`magnos.interactions.read_interactions`:
+:code:`magnon.interactions.read_interactions`:
 
 .. code-block::
 
-   interactions = magnos.interactions.read_interactions("FeGd_exchange")
-   interactions = magnos.interactions.InteractionList(interactions, atoms=atoms)
+   interactions = magnon.interactions.read_interactions("FeGd_exchange")
+   interactions = magnon.interactions.InteractionList(interactions, atoms=atoms)
 
 .. note::
 
-   Magnos also supports tensor coupling for more complicated spin interactions. These are specified by nine entries after
+   Magnon also supports tensor coupling for more complicated spin interactions. These are specified by nine entries after
    the vector, rather than the single entry for a scalar (isotropic) interaction.
 
 Reading in a single line
@@ -194,7 +194,7 @@ All of the above can be achieved more compactly using
 
 .. code-block::
 
-   atoms, interactions = magnos.input.create_interacting_system('FeGd.poscar', 'FeGd_moments', 'FeGd_exchange',)
+   atoms, interactions = magnon.input.create_interacting_system('FeGd.poscar', 'FeGd_moments', 'FeGd_exchange',)
 
 Getting the bandstructure
 -------------------------
@@ -215,7 +215,7 @@ we did in the very first tutorial:
 
     path = atoms.get_cell().bandpath(path='GHNGPH', npoints=240, special_points=special)
 
-    magnon = magnos.MagnonSpectrum(atoms, interactions, ham_prefactor=1)
+    magnon = magnon.MagnonSpectrum(atoms, interactions, ham_prefactor=1)
 
     bstruct = magnon.get_band_structure(path)
     bstruct.plot(emin=0, emax=200, filename='FeGd_bands.png')
@@ -247,9 +247,9 @@ Full script
 
 .. code-block::
 
-    import magnos
+    import magnon
 
-    atoms, interactions = magnos.input.create_interacting_system('FeGd.poscar', 'FeGd_moments', 'FeGd_exchange',)
+    atoms, interactions = magnon.input.create_interacting_system('FeGd.poscar', 'FeGd_moments', 'FeGd_exchange',)
     interactions = interactions.symmetrize(atoms)
 
     special = {
@@ -261,7 +261,7 @@ Full script
 
     path = atoms.get_cell().bandpath(path='GHNGPH', npoints=240, special_points=special)
 
-    magnon = magnos.MagnonSpectrum(atoms, interactions, ham_prefactor=1)
+    magnon = magnon.MagnonSpectrum(atoms, interactions, ham_prefactor=1)
 
     bstruct = magnon.get_band_structure(path)
     bstruct.plot(emin=0, emax=200, filename='FeGd_bands.png')

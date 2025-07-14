@@ -6,11 +6,11 @@ requires = [
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "magnos"
+name = "magnon"
 version = "1.0.0"
 requires-python = ">=3.12"
 description = """
-Magnos is a general, scalable Python code to simulate magnon bandstructures from spin structures and exchange coupling constants.
+Magnon is a general, scalable Python code to simulate magnon bandstructures from spin structures and exchange coupling constants.
 It is based on linear spin wave theory and uses the rotated frame approach to model collinear and non-collinear magnetic insulators.
 """
 readme = "README.rst"

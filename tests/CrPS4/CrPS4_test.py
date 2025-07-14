@@ -5,11 +5,11 @@ import unittest
 import matplotlib.pyplot as plt
 import numpy as np
 
-import magnos
+import magnon
 
 from tests.test_utils import band_structures_are_equal
 
-logger = logging.getLogger("magnos")
+logger = logging.getLogger("magnon")
 
 class TestCrPS4(unittest.TestCase):
     """
@@ -26,7 +26,7 @@ class TestCrPS4(unittest.TestCase):
     logger.addHandler(console_handler)
 
     def test_conventional_cell_full_exchange_spectrum(self):
-        atoms, interactions = magnos.input.create_interacting_system(
+        atoms, interactions = magnon.input.create_interacting_system(
             'tests/CrPS4/CrPS4.poscar', 'tests/CrPS4/CrPS4.moments',
             'tests/CrPS4/CrPS4.exchange', 1)
         interactions = interactions.symmetrize(atoms)
@@ -42,7 +42,7 @@ class TestCrPS4(unittest.TestCase):
 
         path = atoms.get_cell().bandpath(special_kpts, npoints=50, special_points=special_kpts)
 
-        magnon = magnos.MagnonSpectrum(atoms, interactions, num_threads=2)
+        magnon = magnon.MagnonSpectrum(atoms, interactions, num_threads=2)
         bstruct = magnon.get_band_structure(path)
 
         if self.do_overwrite:
@@ -75,7 +75,7 @@ class TestCrPS4(unittest.TestCase):
         """
 
         # First calculate the non primitive spectrum
-        atoms, interactions = magnos.input.create_interacting_system(
+        atoms, interactions = magnon.input.create_interacting_system(
             'tests/CrPS4/CrPS4.poscar', 'tests/CrPS4/CrPS4.moments',
             'tests/CrPS4/CrPS4.exchange', 1)
         interactions = interactions.symmetrize(atoms)
@@ -91,14 +91,14 @@ class TestCrPS4(unittest.TestCase):
 
         path = atoms.get_cell().bandpath(special_kpts, npoints=50, special_points=special_kpts)
 
-        magnon = magnos.MagnonSpectrum(atoms, interactions, num_threads=2)
+        magnon = magnon.MagnonSpectrum(atoms, interactions, num_threads=2)
         bstruct = magnon.get_band_structure(path)
 
         energies=bstruct.energies.squeeze(axis=0).T
 
         # Now do the primitive calculation
-        prim_atoms, prim_interactions, _ = magnos.build.build_primitive_cell(atoms, interactions)
-        prim_magnon = magnos.MagnonSpectrum(prim_atoms, prim_interactions, num_threads=4)
+        prim_atoms, prim_interactions, _ = magnon.build.build_primitive_cell(atoms, interactions)
+        prim_magnon = magnon.MagnonSpectrum(prim_atoms, prim_interactions, num_threads=4)
         prim_bstruct = prim_magnon.get_band_structure(path)
 
         prim_energies=prim_bstruct.energies.squeeze(axis=0).T

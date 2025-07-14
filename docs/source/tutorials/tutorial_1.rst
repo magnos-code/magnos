@@ -10,11 +10,11 @@ Tutorial #1: The Basics
 Importing the package
 ----------------------
 
-First, we must import Magnos, NumPy and ASE:
+First, we must import Magnon, NumPy and ASE:
 
 .. code-block::
 
-   import magnos
+   import magnon
    from ase import Atoms
    import numpy as np
 
@@ -56,18 +56,18 @@ We use these three quantities to initialise an ASE Atoms object and set its magn
    atoms = Atoms("Fe", positions=positions, cell=lattice)
    atoms.set_initial_magnetic_moments(magnetic_moments)
 
-The ASE Atoms object is used throughout Magnos for handling atomic structure, as it offers all of the core
+The ASE Atoms object is used throughout Magnon for handling atomic structure, as it offers all of the core
 functionality required for storing, accessing and manipulating structures in a clean and intuitive form.
 
 Defining the interactions
 -------------------------
 
-In Magnos, the InteractionList class is used to store and process exchange coupling data. We first initialise an empty instance,
+In Magnon, the InteractionList class is used to store and process exchange coupling data. We first initialise an empty instance,
 supplying our atomic structure via the ASE Atoms object,
 
 .. code-block::
 
-   interactions = magnos.InteractionList([], atoms=atoms)
+   interactions = magnon.InteractionList([], atoms=atoms)
 
 In Figure 1, the red arrows show that the spin interacts with its own image (under periodic boundary conditions) at displacements :math:`-\hat{\mathbf{x}}` and :math:`+\hat{\mathbf{x}}` from itself. We append these interactions as
 
@@ -108,7 +108,7 @@ bandpath:
 
 .. code-block::
 
-   magnon = magnos.MagnonSpectrum(atoms, interactions)
+   magnon = magnon.MagnonSpectrum(atoms, interactions)
 
    bstruct = magnon.get_band_structure(path)
    bstruct.plot(emin=0, emax=20, filename='basic_bands.png')
@@ -124,7 +124,7 @@ Full script
 
 .. code-block::
 
-    import magnos
+    import magnon
     from ase import Atoms
     import numpy as np
 
@@ -138,7 +138,7 @@ Full script
     atoms = Atoms("Fe", positions=positions, cell=lattice)
     atoms.set_initial_magnetic_moments(magnetic_moments)
 
-    interactions = magnos.InteractionList([], atoms=atoms)
+    interactions = magnon.InteractionList([], atoms=atoms)
     interactions.insert_interaction(0, 0, np.array([-1, 0 ,0]), np.eye(3))
     interactions.insert_interaction(0, 0, np.array([ 1, 0, 0]), np.eye(3))
 
@@ -149,7 +149,7 @@ Full script
 
     path = atoms.get_cell().bandpath(path='XGX', npoints=100, special_points=special_points)
 
-    magnon = magnos.MagnonSpectrum(atoms, interactions)
+    magnon = magnon.MagnonSpectrum(atoms, interactions)
 
     bstruct = magnon.get_band_structure(path)
     bstruct.plot(emin=0, emax=20, filename='basic_bands.png')

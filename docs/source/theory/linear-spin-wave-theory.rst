@@ -205,7 +205,7 @@ use the vectors
 
    \mathbf{v}_{b} = \mathbf{q}_{b,3}.
 
-These vectors are generated internally by Magnos from the spin direction vectors.
+These vectors are generated internally by Magnon from the spin direction vectors.
 
 Cell rotation
 +++++++++++++++
@@ -218,7 +218,7 @@ in a given cell is
 
    \theta = \mathbf{k}_{rot}\cdot\mathbf{R}.
 
-A rotation axis should also be specified. Magnos takes :math:`\mathbf{k}_rot` and applies the magnetic ordering.
+A rotation axis should also be specified. Magnon takes :math:`\mathbf{k}_rot` and applies the magnetic ordering.
 
 .. figure:: mag_ord.png
 
@@ -332,7 +332,7 @@ with
    
    </div>
 
-This Hamiltonian is implemented in the MagnonSpectrum class in Magnos.
+This Hamiltonian is implemented in the MagnonSpectrum class in Magnon.
 
 Bogoliubov transformation
 -------------------------

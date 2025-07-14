@@ -13,7 +13,7 @@ We start by importing the necessary modules, and setting up the same cell as in 
 
 .. code-block::
 
-   import magnos
+   import magnon
    from ase import Atoms
    import numpy as np
 
@@ -45,7 +45,7 @@ want all six nearest-neighbour interactions (i.e. we are moving to couplings in 
 
 .. code-block::
 
-   interactions = magnos.InteractionList([], atoms=atoms)
+   interactions = magnon.InteractionList([], atoms=atoms)
    interactions.insert_interaction(0, 0, [ 1, 0, 0], np.eye(3))
 
 Now we use the in-built :code:`symmetrize` method to generate the other 5 interactions:
@@ -130,7 +130,7 @@ The Symmetrization Procedure
 
 The exchange coupling is generally complex, with many interactions for each magnetic site. However, the symmetry of the
 underlying structure often ensures that many of these couplings are symmetry-equivalent. To aid the construction of
-fully-symmetrised InteractionList objects, Magnos provides the option to apply these
+fully-symmetrised InteractionList objects, Magnon provides the option to apply these
 symmetries to the object to generate the full set of couplings from a minimal descriptive set or to test that the symmetries
 are satisfied. This applies the following:
 
@@ -162,7 +162,7 @@ are satisfied. This applies the following:
    .. note::
 
       It is important to also include nonmagnetic sites in the specification of the structure, as they may be have
-      important effects on the symmetry. Magnos will automatically remove them from the bandstructure calculation later on to avoid
+      important effects on the symmetry. Magnon will automatically remove them from the bandstructure calculation later on to avoid
       additional zero modes.
 
 3. Since the two steps above may have introduced multiple copies of some couplings, we clean out any duplicates and make sure the couplings are unique.
@@ -297,14 +297,14 @@ We insert a single interaction,
 
 .. code-block::
 
-   interactions = magnos.InteractionList([], atoms=atoms)
+   interactions = magnon.InteractionList([], atoms=atoms)
    interactions.insert_interaction(0, 1, np.array([0.5, 0.5, 0.5]), np.eye(3))
 
 First, we apply the bond reversal symmetry,
 
 .. code-block::
 
-   interactions = magnos.interactions.apply_bond_reversal_symmetry(interactions)
+   interactions = magnon.interactions.apply_bond_reversal_symmetry(interactions)
 
    for i,j,r_ij,J_ij in interactions:
        print(f"i ={i:2d}, j ={j:2d}, r_ij = ({r_ij[0]:4.1f}, {r_ij[1]:4.1f}, {r_ij[2]:4.1f}), J_ij ={J_ij[0,0]:5.2f} eV")
@@ -358,7 +358,7 @@ Interactions from symmetry #1:
 
 .. code-block::
 
-    import magnos
+    import magnon
     from ase import Atoms
     import numpy as np
 
@@ -371,7 +371,7 @@ Interactions from symmetry #1:
     atoms = Atoms("Fe", positions=positions, cell=lattice)
     atoms.set_initial_magnetic_moments(magnetic_moments)
 
-    interactions = magnos.InteractionList([], atoms=atoms)
+    interactions = magnon.InteractionList([], atoms=atoms)
     interactions.insert_interaction(0, 0, np.array([1, 0, 0]), np.eye(3))
 
     interactions = interactions.symmetrize(atoms)
@@ -383,7 +383,7 @@ Interactions from symmetry #2:
 
 .. code-block::
 
-    import magnos
+    import magnon
     from ase import Atoms
     import numpy as np
 
@@ -396,7 +396,7 @@ Interactions from symmetry #2:
     atoms = Atoms("Fe", positions=positions, cell=lattice)
     atoms.set_initial_magnetic_moments(magnetic_moments)
 
-    interactions = magnos.InteractionList([], atoms=atoms)
+    interactions = magnon.InteractionList([], atoms=atoms)
     interactions.insert_interaction(0, 0, np.array([1, 0, 0]), np.eye(3))
 
     interactions = interactions.symmetrize(atoms)
@@ -408,7 +408,7 @@ Interactions from symmetry #3:
 
 .. code-block::
 
-    import magnos
+    import magnon
     from ase import Atoms
     import numpy as np
 
@@ -421,7 +421,7 @@ Interactions from symmetry #3:
     atoms = Atoms("Fe", positions=positions, cell=lattice)
     atoms.set_initial_magnetic_moments(magnetic_moments)
 
-    interactions = magnos.InteractionList([], atoms=atoms)
+    interactions = magnon.InteractionList([], atoms=atoms)
     interactions.insert_interaction(0, 0, np.array([1, 0, 0]), np.eye(3))
     interactions.insert_interaction(0, 0, np.array([0, 0, 1]), 2*np.eye(3))
 
@@ -434,7 +434,7 @@ Bond reversal symmetry and symmetry operations:
 
 .. code-block::
 
-    import magnos
+    import magnon
     from ase import Atoms
     import numpy as np
 
@@ -447,10 +447,10 @@ Bond reversal symmetry and symmetry operations:
     atoms = Atoms(["Fe", "Fe"], positions=positions, cell=lattice)
     atoms.set_initial_magnetic_moments(magnetic_moments)
 
-    interactions = magnos.InteractionList([], atoms=atoms)
+    interactions = magnon.InteractionList([], atoms=atoms)
     interactions.insert_interaction(0, 1, np.array([0.5, 0.5, 0.5]), np.eye(3))
 
-    interactions = magnos.interactions.apply_bond_reversal_symmetry(interactions)
+    interactions = magnon.interactions.apply_bond_reversal_symmetry(interactions)
 
     for i,j,r_ij,J_ij in interactions:
         print(f"i ={i:2d}, j ={j:2d}, r_ij = ({r_ij[0]:4.1f}, {r_ij[1]:4.1f}, {r_ij[2]:4.1f}), J_ij ={J_ij[0,0]:5.2f} eV")

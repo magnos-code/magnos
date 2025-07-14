@@ -3,8 +3,8 @@ import spglib
 from ase import Atoms
 from scipy.spatial.distance import cdist
 
-import magnos.interactions
-from magnos.common import normalize_scaled_coordinate, reciprocal_lattice, default_distance_tol
+import magnon.interactions
+from magnon.common import normalize_scaled_coordinate, reciprocal_lattice, default_distance_tol
 
 def cell_transformation(original_cell, new_cell):
     """
@@ -28,7 +28,7 @@ def cell_transformation(original_cell, new_cell):
     
     See Also
     ----------
-    magnos.build.build_primitive_cell : Uses to map from conventional to primitive cell.
+    magnon.build.build_primitive_cell : Uses to map from conventional to primitive cell.
 
     
     Notes
@@ -48,7 +48,7 @@ def build_primitive_cell(ase_atoms, interactions, distance_tol: float=default_di
     ----------
         ase_atoms : ase.Atoms
             The atoms object from which to build the primitive cell.
-        interactions : magnos.InteractionsList
+        interactions : magnon.InteractionsList
             The InteractionList object for the original cell exchange couplings.
         distance_tol : float, optional
             The precision to use in determining equivalent positions.
@@ -65,7 +65,7 @@ def build_primitive_cell(ase_atoms, interactions, distance_tol: float=default_di
     ----------
         ase_prim_atoms : ase.Atoms object
             The ASE Atoms object for the primitive cell
-        interactions : magnos.InteractionsList
+        interactions : magnon.InteractionsList
             The InteractionList object for the primitive cell.
         transformation_matrix : numpy.ndarray, dtype float
             The matrix transformation mapping from scaled coordinates with respect to the original cell, with shape (3, 3).
@@ -164,7 +164,7 @@ def build_primitive_cell(ase_atoms, interactions, distance_tol: float=default_di
     )
 
     # Here I need the reverse mapping which maps the index in the original cell to the primitive cell
-    prim_interactions = magnos.interactions.InteractionList([], atoms=ase_prim_atoms)
+    prim_interactions = magnon.interactions.InteractionList([], atoms=ase_prim_atoms)
 
     for i, i_original_index in enumerate(mapping):
         for _, j_original_index, r_ij_scaled, J_ij in interactions.get_interactions(i_original_index):
@@ -201,7 +201,7 @@ def convert_kpts(kpts, original_cell, new_cell):
         
     See Also
     ----------
-        magnos.build.cell_transformation : Returns the transformation matrix for scaled coordinates between two cells
+        magnon.build.cell_transformation : Returns the transformation matrix for scaled coordinates between two cells
     """
 
     kpts_array = np.atleast_2d(kpts).astype(np.float64)

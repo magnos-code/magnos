@@ -7,8 +7,8 @@ import numpy as np
 import spglib
 from numpy.typing import ArrayLike
 
-import magnos
-from magnos.common import modulo_lattice, squared_distance, normalize_scaled_coordinate
+import magnon
+from magnon.common import modulo_lattice, squared_distance, normalize_scaled_coordinate
 
 class SymOp:
     """
@@ -32,7 +32,7 @@ class SymOp:
     This class supports standard operations such as composition (multiplication), inversion,
     application to coordinates, and introspection of geometric properties such as rotation axes and fixed points.
     """
-    def __init__(self, rotation: ArrayLike, translation: ArrayLike, symmetry_tol: float=magnos.default_numerical_tol):
+    def __init__(self, rotation: ArrayLike, translation: ArrayLike, symmetry_tol: float=magnon.default_numerical_tol):
         """
         Initialize a symmetry operation.
 
@@ -297,7 +297,7 @@ class SymOp:
         """
         return self.translation - self.intrinsic_translation()
 
-    def rotation_axis(self, tol: float=magnos.default_numerical_tol) -> np.ndarray | None:
+    def rotation_axis(self, tol: float=magnon.default_numerical_tol) -> np.ndarray | None:
         """
         Return the axis of rotation as a unit vector, if defined.
 
@@ -331,7 +331,7 @@ class SymOp:
                 break
         return axis
 
-    def is_translation_only(self, tol: float=magnos.default_numerical_tol) -> bool:
+    def is_translation_only(self, tol: float=magnon.default_numerical_tol) -> bool:
         """
         Check whether the symmetry operation is a pure translation.
 
@@ -353,7 +353,7 @@ class SymOp:
         translation_mod = normalize_scaled_coordinate(self.translation)
         return np.dot(translation_mod, translation_mod) > tol ** 2
 
-    def is_identity(self, tol: float=magnos.default_numerical_tol) -> bool:
+    def is_identity(self, tol: float=magnon.default_numerical_tol) -> bool:
         """
         Check whether the symmetry operation is the identity.
 
@@ -425,7 +425,7 @@ def symop_product_modulo_lattice(a: SymOp, b: SymOp) -> SymOp:
 
     See Also
     ----------
-        `magnos.symmetry.SymOp.__mul__`
+        `magnon.symmetry.SymOp.__mul__`
     """
     rot = a.rotation @ b.rotation
     trans = normalize_scaled_coordinate(a.translation + a.rotation @ b.translation)
@@ -572,7 +572,7 @@ def is_group(symops: Collection[SymOp], mod_lattice: bool = False) -> bool:
 
     return True
 
-def is_point_group(symops: Collection['SymOp'], tol: float=magnos.default_numerical_tol) -> bool:
+def is_point_group(symops: Collection['SymOp'], tol: float=magnon.default_numerical_tol) -> bool:
     """
     Check whether a set of symmetry operations forms a point group under composition.
 
@@ -633,7 +633,7 @@ def is_point_group(symops: Collection['SymOp'], tol: float=magnos.default_numeri
     return True
 
 
-def k_star(k: ArrayLike, symops: Collection[SymOp], tol: float=magnos.default_numerical_tol) -> list[np.ndarray]:
+def k_star(k: ArrayLike, symops: Collection[SymOp], tol: float=magnon.default_numerical_tol) -> list[np.ndarray]:
     r"""
     Generate the star of vector k by applying a set of symmetry operations.
 
@@ -761,7 +761,7 @@ def remove_translations(symops: SymOp | Collection[SymOp]) -> SymOp | list[SymOp
     return [SymOp(s.rotation, np.zeros(3)) for s in symops]
 
 
-def rotation_axes(symops: Collection[SymOp], tol=magnos.default_numerical_tol) -> list[tuple[np.ndarray, int]]:
+def rotation_axes(symops: Collection[SymOp], tol=magnon.default_numerical_tol) -> list[tuple[np.ndarray, int]]:
     """
     Identify distinct rotation axes from a collection of symmetry operations.
 

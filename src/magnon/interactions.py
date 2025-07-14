@@ -4,7 +4,7 @@ from dataclasses import dataclass
 import numpy as np
 from ase.utils import reader
 
-from magnos.common import default_distance_tol, find_site_index, lattice_translation_vector
+from magnon.common import default_distance_tol, find_site_index, lattice_translation_vector
 
 from .symmetry import factor_out_translations, get_space_group_symops, k_star, site_symmetry_group
 from .utils import ensure_vector_magnetic_moments
@@ -193,7 +193,7 @@ class InteractionList:
                 
         See Also
         ----------
-            magnos.interactions.symmetrize_couplings
+            magnon.interactions.symmetrize_couplings
 
         """
         interaction_data = symmetrize_couplings(self, atoms)
@@ -220,7 +220,7 @@ class InteractionList:
    
         Notes
         ----------
-            This can be used to update the site indices when the nonmagnetic sites are removed - see `magnos.MagnonSpectrum`.
+            This can be used to update the site indices when the nonmagnetic sites are removed - see `magnon.MagnonSpectrum`.
             The mapping in this case contains -1 for the nonmagnetic sites. If -1 is detected in the new couplings, a ValueError is raised.
 
         """
@@ -311,7 +311,7 @@ def symmetrize_couplings(interaction_list, atoms, distance_tol: float=default_di
 
     Parameters
     ----------
-        interaction_list : magnos.InteractionList object
+        interaction_list : magnon.InteractionList object
             The InteractionList object containing the exchange coupling to be symmetrized
         atoms : ASE.Atoms object
             The ASE Atoms object of the cell associated with the interactions
@@ -327,7 +327,7 @@ def symmetrize_couplings(interaction_list, atoms, distance_tol: float=default_di
         
     Returns
     ----------
-        new_interaction_list : magnos.InteractionList object
+        new_interaction_list : magnon.InteractionList object
             The fully-symmetrized exchange coupling interactions
     """
 

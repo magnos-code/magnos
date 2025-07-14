@@ -16,7 +16,7 @@ As usual, we import the necessary modules:
 
 .. code-block::
 
-   import magnos
+   import magnon
    from ase import Atoms
    import numpy as np
 
@@ -148,7 +148,7 @@ Then define a minimal set of interactions up to second nearest-neighbour:
 
 .. code-block::
 
-    interactions = magnos.InteractionList([], atoms=atoms)
+    interactions = magnon.InteractionList([], atoms=atoms)
     interactions.insert_interaction(0, 1, np.array([0.5, 0.5, 0.5]), 0.021*np.eye(3))
     interactions.insert_interaction(0, 0, np.array([1.0, 0.0, 0.0]), 0.013*np.eye(3))
     interactions.insert_interaction(1, 1, np.array([1.0, 0.0, 0.0]), 0.013*np.eye(3))
@@ -166,7 +166,7 @@ The Atoms and InteractionList objects of the primitive cell are obtained using
 
 .. code-block::
 
-   atoms, interactions, _ = magnos.build.build_primitive_cell(atoms, interactions)
+   atoms, interactions, _ = magnon.build.build_primitive_cell(atoms, interactions)
 
 .. note::
 
@@ -210,7 +210,7 @@ We can finally initialize the MagnonSpectrum object with the structure and inter
 
 .. code-block::
 
-    magnon = magnos.MagnonSpectrum(atoms, interactions)
+    magnon = magnon.MagnonSpectrum(atoms, interactions)
 
     bstruct = magnon.get_band_structure(path)
     bstruct.plot(emin=0, emax=0.7, filename='Iron_BCC_bands.png')
@@ -222,7 +222,7 @@ The combined script for all of the above is
 
 .. code-block::
 
-   import magnos
+   import magnon
    from ase import Atoms
    import numpy as np
 
@@ -235,17 +235,17 @@ The combined script for all of the above is
    atoms = Atoms(["Fe", "Fe"], positions=positions, cell=lattice)
    atoms.set_initial_magnetic_moments(magnetic_moments)
 
-   interactions = magnos.InteractionList([], atoms=atoms)
+   interactions = magnon.InteractionList([], atoms=atoms)
    interactions.insert_interaction(0, 1, np.array([0.5, 0.5, 0.5]), 0.021*np.eye(3))
    interactions.insert_interaction(0, 0, np.array([1.0, 0.0, 0.0]), 0.013*np.eye(3))
    interactions.insert_interaction(1, 1, np.array([1.0, 0.0, 0.0]), 0.013*np.eye(3))
 
    interactions = interactions.symmetrize(atoms)
-   atoms, interactions, _ = magnos.build.build_primitive_cell(atoms, interactions)
+   atoms, interactions, _ = magnon.build.build_primitive_cell(atoms, interactions)
 
    path = atoms.get_cell().bandpath(path='GHNGPH', npoints=60)
 
-   magnon = magnos.MagnonSpectrum(atoms, interactions)
+   magnon = magnon.MagnonSpectrum(atoms, interactions)
 
    bstruct = magnon.get_band_structure(path)
    bstruct.plot(emin=0, emax=0.7, filename='Iron_BCC_bands.png')
@@ -266,7 +266,7 @@ Now consider what we would have obtained without the primitivization step. Consi
 
 .. code-block::
 
-    import magnos
+    import magnon
     from ase import Atoms
     import numpy as np
 
@@ -279,17 +279,17 @@ Now consider what we would have obtained without the primitivization step. Consi
     atoms = Atoms(["Fe", "Fe"], positions=positions, cell=lattice)
     atoms.set_initial_magnetic_moments(magnetic_moments)
 
-    interactions = magnos.InteractionList([], atoms=atoms)
+    interactions = magnon.InteractionList([], atoms=atoms)
     interactions.insert_interaction(0, 1, np.array([0.5, 0.5, 0.5]), 0.021*np.eye(3))
     interactions.insert_interaction(0, 0, np.array([1.0, 0.0, 0.0]), 0.013*np.eye(3))
     interactions.insert_interaction(1, 1, np.array([1.0, 0.0, 0.0]), 0.013*np.eye(3))
 
     interactions = interactions.symmetrize(atoms)
-    prim_atoms, prim_interactions, _ = magnos.build.build_primitive_cell(atoms, interactions)
+    prim_atoms, prim_interactions, _ = magnon.build.build_primitive_cell(atoms, interactions)
 
     path = prim_atoms.get_cell().bandpath(path='GHNGPH', npoints=180)
 
-    magnon = magnos.MagnonSpectrum(atoms, interactions)
+    magnon = magnon.MagnonSpectrum(atoms, interactions)
 
     bstruct = magnon.get_band_structure(path)
     bstruct.plot(emin=0, emax=0.7, filename='Iron_BCC_bands_folded.png')

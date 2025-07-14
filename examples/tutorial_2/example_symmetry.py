@@ -1,4 +1,4 @@
-import magnos
+import magnon
 from ase import Atoms
 import numpy as np
 
@@ -11,10 +11,10 @@ magnetic_moments = np.array([[0,0,1], [0,0,1]])
 atoms = Atoms(["Fe", "Fe"], positions=positions, cell=lattice)
 atoms.set_initial_magnetic_moments(magnetic_moments)
 
-interactions = magnos.InteractionList([], atoms=atoms)
+interactions = magnon.InteractionList([], atoms=atoms)
 interactions.insert_interaction(0, 1, np.array([0.5, 0.5, 0.5]), np.eye(3))
 
-interactions = magnos.interactions.apply_bond_reversal_symmetry(interactions)
+interactions = magnon.interactions.apply_bond_reversal_symmetry(interactions)
 
 print("Bond reversal symmetry")
 for i,j,r_ij,J_ij in interactions:

@@ -6,7 +6,7 @@ import ase.spectrum.dosdata
 import numpy as np
 from numpy.typing import ArrayLike
 
-import magnos
+import magnon
 
 
 class MagnonSpectrum:
@@ -17,7 +17,7 @@ class MagnonSpectrum:
     ----------
         atoms : ase.Atoms object
             The Atoms object of the system to which the magnon spectrum pertains.
-        interactions : magnos.interactions.InteractionList object
+        interactions : magnon.interactions.InteractionList object
             The InteractionList object of the exchange interactions to use for the spectrum calculation.
         num_threads : int
             The number of threads to use for parallel calculations.
@@ -45,10 +45,10 @@ class MagnonSpectrum:
     Attributes
     ----------
         u : numpy.ndarray, dtype: float
-            The u vectors for each site. See :func:`magnos.magnons.MagnonSpectrum._generate_uv_vectors`.
+            The u vectors for each site. See :func:`magnon.magnons.MagnonSpectrum._generate_uv_vectors`.
 
         v : numpy.ndarray, dtype: float
-            The v vectors for each site. See :func:`magnos.magnons.MagnonSpectrum._generate_uv_vectors`.
+            The v vectors for each site. See :func:`magnon.magnons.MagnonSpectrum._generate_uv_vectors`.
 
         S : numpy.ndarray, dtype: float
             Spin quantum numbers.
@@ -64,7 +64,7 @@ class MagnonSpectrum:
     """
 
 
-    def __init__(self, atoms: ase.Atoms, interactions: magnos.interactions.InteractionList, calc=None,
+    def __init__(self, atoms: ase.Atoms, interactions: magnon.interactions.InteractionList, calc=None,
                  supercell: ArrayLike = (1, 1, 1), name: str | None = None, num_threads: int = 1, **kwargs):
         self._num_threads = num_threads
 
@@ -72,7 +72,7 @@ class MagnonSpectrum:
             kwargs['name'] = "magnon"
 
         # Check atoms has magmoms and that it's vectorial.
-        atoms = magnos.utils.ensure_vector_magnetic_moments(atoms)
+        atoms = magnon.utils.ensure_vector_magnetic_moments(atoms)
 
         # indices of atoms which have non-zero magnetic moments
         if atoms.get_initial_magnetic_moments().ndim == 2:
@@ -129,7 +129,7 @@ class MagnonSpectrum:
             self.spins_are_unit = True
 
         self.spin = 0.5*np.linalg.norm(mag_atoms.get_initial_magnetic_moments(), axis=1)
-        self.S, self.usm_factors = magnos.lattice.unit_spin_model_factors(self.spin, self.spins_are_unit)
+        self.S, self.usm_factors = magnon.lattice.unit_spin_model_factors(self.spin, self.spins_are_unit)
 
 
     def _build_interaction_matrix(self):
@@ -173,7 +173,7 @@ class MagnonSpectrum:
                 axis = np.cross(z, spin_unit_vectors[i])
                 axis /= np.dot(axis, axis)
                 angle = np.arccos(dot_z)
-                rot, _ = magnos.linalg.rotation_matrix_pair(axis, angle)
+                rot, _ = magnon.linalg.rotation_matrix_pair(axis, angle)
                 u_vectors.append(np.einsum("ij,j->i", rot, u_z))
             v_vectors.append(spin_unit_vectors[i])
 
@@ -225,7 +225,7 @@ class MagnonSpectrum:
             x_scaled = inv_cell @ x
             exp_k_x = np.exp(1j * np.dot(k, x))
             Q_cell_ang = 2 * np.pi * np.dot(self.mag_order_vect, x_scaled)
-            Q_cell = magnos.linalg.rotation_matrix_pair(self.mag_order_axis, Q_cell_ang)[0]
+            Q_cell = magnon.linalg.rotation_matrix_pair(self.mag_order_axis, Q_cell_ang)[0]
 
             for b in range(nmag_atoms):
                 for b_prime in range(nmag_atoms):
@@ -263,7 +263,7 @@ class MagnonSpectrum:
             [term_3, term_4 + eps_block]
         ])
 
-        paraidentity = magnos.linalg.paraidentity(nmag_atoms)
+        paraidentity = magnon.linalg.paraidentity(nmag_atoms)
 
         # Bogoliubov transform
         try:

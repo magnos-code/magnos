@@ -3,8 +3,8 @@ default_numerical_tol: float = 1e-8
 
 from . import input, interactions, lattice, linalg, symmetry, utils, build
 from .magnons import *
-from magnos.interactions import InteractionList
-from magnos.interactions import Interaction
-from magnos.magnons import MagnonSpectrum
+from magnon.interactions import InteractionList
+from magnon.interactions import Interaction
+from magnon.magnons import MagnonSpectrum
 
 __all__ = []

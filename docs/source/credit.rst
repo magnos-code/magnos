@@ -4,19 +4,19 @@ Licensing and Citation
 License
 -------
 
-Magnos is made available under the [license].
+Magnon is made available under the [license].
 
 
-Citing Magnos
+Citing Magnon
 -------------
 
-If Magnos was useful for your work, please reference us.
+If Magnon was useful for your work, please reference us.
 
 .. note::
 
-   An accompanying paper for Magnos is currently under preparation. In the meantime, please reference this website.
+   An accompanying paper for Magnon is currently under preparation. In the meantime, please reference this website.
 
    .. code-block::
 
-      A.E. Moorhouse, J. Barker and M. Simoncelli, "Magnos code for magnon bandstructures simulations", manuscript in preparation (2025)
+      A.E. Moorhouse, J. Barker and M. Simoncelli, "Magnon code for magnon bandstructures simulations", manuscript in preparation (2025)
 

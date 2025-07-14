@@ -4,7 +4,7 @@ References
 Theory
 ------
 
-Magnos makes use of 
+Magnon makes use of
 
 * The Holstein-Primakoff transformation :cite:`holstein1940`
 * Rotated frame approach for the LSWT Hamiltonian :cite:`toth2015`
@@ -13,7 +13,7 @@ Magnos makes use of
 Libraries
 ---------
 
-Magnos makes use of
+Magnon makes use of
 
 * the Atomic Simulation Environment :cite:`ase2017`
 

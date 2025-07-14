@@ -47,7 +47,7 @@ Magnetic moments and spins
 --------------------------
 
 Magnetic moments :math:`\mu` are usually given in units of :math:`\mu_B` (the Bohr magneton). Spin angular momentum :math:`S` is usually given in
-units of :math:`\hbar`. In these units, the magnitudes are related by :math:`\mu = 2S\mu_B`. When reading files with magnetic data, by default Magnos assumes
+units of :math:`\hbar`. In these units, the magnitudes are related by :math:`\mu = 2S\mu_B`. When reading files with magnetic data, by default Magnon assumes
 magnetic moments are being provided. To instead read spin quantum numbers, a scaling of :math:`2` may be applied.
 
 Rotation matrices are labelled :math:`Q`. Their column vectors are labelled :math:`\mathbf{q}_1`, :math:`\mathbf{q}_2`, :math:`\mathbf{q}_3`.
@@ -109,7 +109,7 @@ Magnon creation and annihilation operators are denoted by :math:`\hat{b}^\dagger
 Hamiltonian prefactor
 ---------------------
 
-The Heisenberg Hamiltonian in Magnos is defined as a sum over all pairs of indices and double-counting is then removed
+The Heisenberg Hamiltonian in Magnon is defined as a sum over all pairs of indices and double-counting is then removed
 by multiplying by :math:`0.5`. This is then multiplied by a prefactor which by default is :math:`2`, but this may be changed by
 the user when initializing the :code:`MagnonSpectrum` object.
 
@@ -124,7 +124,7 @@ It is also common to use a model in which the spin vectors are replaced by unit 
 
 In this case, the magnitude of the spin angular momentum is absorbed into a redefined exchange coupling :math:`j`. This means that
 exchange coupling values derived based on this model will be different to those derived using dimensionful spins.
-The Hamiltonian in Magnos uses a dimensionful spin model. There is then a conversion applied to each element of the
+The Hamiltonian in Magnon uses a dimensionful spin model. There is then a conversion applied to each element of the
 Hamiltonian to account for the couplings being defined within the unit model. By default, this conversion is turned on. When turned on, a conversion factor of
 
 .. math::

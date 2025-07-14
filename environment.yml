@@ -1,4 +1,4 @@
-name: magnos
+name: magnon
 channels:
   - conda-forge
 dependencies:

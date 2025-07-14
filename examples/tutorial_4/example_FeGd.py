@@ -1,6 +1,6 @@
-import magnos
+import magnon
 
-atoms, interactions = magnos.input.create_interacting_system('FeGd.poscar', 'FeGd_moments', 'FeGd_exchange', )
+atoms, interactions = magnon.input.create_interacting_system('FeGd.poscar', 'FeGd_moments', 'FeGd_exchange', )
 interactions = interactions.symmetrize(atoms)
 
 special = {
@@ -12,7 +12,7 @@ special = {
 
 path = atoms.get_cell().bandpath(path='GHNGPH', npoints=240, special_points=special)
 
-magnon = magnos.MagnonSpectrum(atoms, interactions, ham_prefactor=1)
+magnon = magnon.MagnonSpectrum(atoms, interactions, ham_prefactor=1)
 
 bstruct = magnon.get_band_structure(path)
 bstruct.plot(emin=0, emax=200, filename='FeGd_bands.png', ylabel='energies [meV]')

@@ -1,7 +1,7 @@
-Magnos: Magnon Bandstructures in Python
+Magnon: Magnon Bandstructures in Python
 =======================================
 
-**Magnos** is a Python library for calculating magnon bandstructures from exchange coupling interactions. It is designed
+**Magnon** is a Python library for calculating magnon bandstructures from exchange coupling interactions. It is designed
 to be intuitive and easy-to-use so that you can spend less time *calculating* bandstructures and more time *using* them
 to do interesting science.
 
@@ -10,25 +10,25 @@ Install
 
 .. code-block::
 
-   pip install magnos
+   pip install magnon
 
 Bandstructures in under 10 lines of code
 ----------------------------------------
 
 It should be extremely easy to take exchange coupling data from the literature and reproduce the magnon bandstructure. Using
-Magnos, the simple script below can be used to obtain the bandstructure of BCC iron in the primitive cell..
+Magnon, the simple script below can be used to obtain the bandstructure of BCC iron in the primitive cell..
 
 .. code-block::
 
-   import magnos
-   import magnos.build
+   import magnon
+   import magnon.build
 
-   atoms, interactions = magnos.input.create_interacting_system('Iron_BCC.poscar', 'Iron_BCC_mag_moments', 'Iron_BCC_exchange', 2)
+   atoms, interactions = magnon.input.create_interacting_system('Iron_BCC.poscar', 'Iron_BCC_mag_moments', 'Iron_BCC_exchange', 2)
 
    interactions = interactions.symmetrize(atoms)
-   primitive_atoms, primitive_interactions, _ = magnos.build.build_primitive_cell(atoms, interactions)
+   primitive_atoms, primitive_interactions, _ = magnon.build.build_primitive_cell(atoms, interactions)
 
-   magnon = magnos.MagnonSpectrum(primitive_atoms,primitive_interactions,num_threads=4)
+   magnon = magnon.MagnonSpectrum(primitive_atoms,primitive_interactions,num_threads=4)
 
    path = primitive_atoms.get_cell().bandpath(path='GNPGHN', npoints=180)
 
@@ -39,7 +39,7 @@ Magnos, the simple script below can be used to obtain the bandstructure of BCC i
 
    The bandstructure of BCC Iron calculated using the above example script.
 
-Why use Magnos?
+Why use Magnon?
 ---------------
 
 Our core development principles are:

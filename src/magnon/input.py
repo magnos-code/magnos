@@ -4,7 +4,7 @@ import ase
 import ase.io
 import numpy as np
 
-import magnos
+import magnon
 
 def read_site_spin_data(spin_data_filename):
     """
@@ -48,7 +48,7 @@ def read_site_spin_data(spin_data_filename):
 
             if match:
                 spin_data.append(np.float64(match.group(1)))
-                direction_data.append(magnos.linalg.normalised_vector(
+                direction_data.append(magnon.linalg.normalised_vector(
                     np.array((match.group(2), match.group(3), match.group(4)), dtype=np.float64)))
                 continue
 
@@ -67,7 +67,7 @@ def read_site_spin_data(spin_data_filename):
 
 def create_interacting_system(cell_file, magmom_file, interaction_file, magmom_scaling=1):
     """
-    Read structural, magnetic and exchange coupling data to create an ASE Atoms object and a Magnos.InteractionList object.
+    Read structural, magnetic and exchange coupling data to create an ASE Atoms object and a Magnon.InteractionList object.
 
     Parameters
     ----------
@@ -84,7 +84,7 @@ def create_interacting_system(cell_file, magmom_file, interaction_file, magmom_s
     ----------
         atoms : ase.Atoms object
             The ASE Atoms object describing the structure and magnetic moments.
-        interactions : magnos.InteractionList object
+        interactions : magnon.InteractionList object
             The InteractionList object describing the exchange coupling.
 
     Notes
@@ -94,10 +94,10 @@ def create_interacting_system(cell_file, magmom_file, interaction_file, magmom_s
     """
 
     atoms = ase.io.read(cell_file)
-    magmoms, directions = magnos.input.read_site_spin_data(magmom_file)
+    magmoms, directions = magnon.input.read_site_spin_data(magmom_file)
     atoms.set_initial_magnetic_moments(magmom_scaling * magmoms[:, np.newaxis] * directions)
 
-    interactions = magnos.interactions.read_interactions(interaction_file)
-    interactions = magnos.interactions.InteractionList(interactions, atoms=atoms)
+    interactions = magnon.interactions.read_interactions(interaction_file)
+    interactions = magnon.interactions.InteractionList(interactions, atoms=atoms)
 
     return atoms, interactions

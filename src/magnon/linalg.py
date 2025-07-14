@@ -1,7 +1,7 @@
 import numpy as np
 from numpy.typing import ArrayLike
 
-import magnos
+import magnon
 
 
 def normalised_vector(vec: ArrayLike) -> np.ndarray:
@@ -174,7 +174,7 @@ def paraidentity(size: int, dtype: np.dtype=np.float64) -> np.ndarray:
     return np.diag(np.array([1]*size + [-1]*size, dtype=dtype))
 
 
-def is_purely_real(arr: ArrayLike, zero_tol: float=magnos.default_numerical_tol):
+def is_purely_real(arr: ArrayLike, zero_tol: float=magnon.default_numerical_tol):
     """
     Test whether all elements of an array are real within a tolerance.
     

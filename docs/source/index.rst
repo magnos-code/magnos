@@ -1,7 +1,7 @@
-Magnos: Magnon Bandstructures in Python
+Magnon: Magnon Bandstructures in Python
 =======================================
 
-**Magnos** is a Python library for calculating magnon bandstructures from exchange coupling interactions. It is designed
+**Magnon** is a Python library for calculating magnon bandstructures from exchange coupling interactions. It is designed
 to be intuitive and easy to use so that you can spend less time *calculating* bandstructures and more time *using* them
 to do interesting science.
 
@@ -9,18 +9,18 @@ Bandstructures in under 10 lines of code
 ----------------------------------------
 
 It is straigthforwaed to take exchange coupling data from the literature and reproduce the corresponding magnon bandstructure.
-Using Magnos, the simple script below can be used to obtain the bandstructure of BCC iron.
+Using Magnon, the simple script below can be used to obtain the bandstructure of BCC iron.
 
 .. code-block::
 
-   import magnos
+   import magnon
 
-   atoms, interactions = magnos.input.create_interacting_system('Iron_BCC.poscar', 'Iron_BCC_mag_moments', 'Iron_BCC_exchange', 2)
+   atoms, interactions = magnon.input.create_interacting_system('Iron_BCC.poscar', 'Iron_BCC_mag_moments', 'Iron_BCC_exchange', 2)
 
    interactions = interactions.symmetrize(atoms)
-   primitive_atoms, primitive_interactions, _ = magnos.build.build_primitive_cell(atoms, interactions)
+   primitive_atoms, primitive_interactions, _ = magnon.build.build_primitive_cell(atoms, interactions)
 
-   magnon = magnos.MagnonSpectrum(primitive_atoms,primitive_interactions,num_threads=4)
+   magnon = magnon.MagnonSpectrum(primitive_atoms,primitive_interactions,num_threads=4)
 
    path = primitive_atoms.get_cell().bandpath(path='GNPGHN', npoints=180)
 
@@ -31,14 +31,14 @@ Using Magnos, the simple script below can be used to obtain the bandstructure of
 
    The bandstructure of BCC Iron calculated using the above example script.
 
-Why use Magnos?
+Why use Magnon?
 ---------------
 
-The core features of Magnos are:
+The core features of Magnon are:
 
 * **Easy to use** - Magnon bandstructures can be computed using less than 10 lines of Python code.
 * **Scalable** - Handles arbitrarily complex atomistic structures using an efficient description of exchange couplings and symmetries.
-* **Integrated** - Interfaces with tools such as the Atomic Simulation Environment (ASE) to accelerate scientific workflows. The MagnonSpectrum class introduced in Magnos mirrors the widely used ASE Phonons class.
+* **Integrated** - Interfaces with tools such as the Atomic Simulation Environment (ASE) to accelerate scientific workflows. The MagnonSpectrum class introduced in Magnon mirrors the widely used ASE Phonons class.
 * **Adaptable** - Allows conventions for working with dimensionless or dimensional magnetic moments, different Hamiltonian conventions, many standard input formats.
 * **Open** - Built for collaboration.
 

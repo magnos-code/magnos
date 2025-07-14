@@ -2,12 +2,12 @@
 
 # -- Project information
 
-project = 'Magnos'
-copyright = '2025, Magnos Development Team'
-author = 'Magnos Development Team'
+project = 'Magnon'
+copyright = '2025, Magnon Development Team'
+author = 'Magnon Development Team'
 
-release = '0.1'
-version = '0.1.0'
+release = '0.0'
+version = '0.0.0'
 
 # -- General configuration
 
@@ -33,8 +33,8 @@ templates_path = ['_templates']
 # -- Options for HTML output
 
 html_theme = 'furo'
-html_logo = "magnos_logo.png"
-html_favicon = 'magnos_icon.ico'
+html_logo = "magnon_logo.png"
+html_favicon = 'magnon_icon.ico'
 #html_static_path = ['_static']
 
 # -- Options for EPUB output
@@ -55,7 +55,7 @@ napoleon_google_docstring = True
 autodoc_typehints = "description"
 
 autoapi_type = 'python'
-autoapi_dirs = ['../../src/magnos']
+autoapi_dirs = ['../../src/magnon']
 autoapi_ignore = ["*/coupling_test.py"]
 
 

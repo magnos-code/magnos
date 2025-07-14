@@ -99,7 +99,7 @@ where :math:`\textbf{S}` is the spin angular momentum. :math:`g` is the **spin g
 
    It is common to refer to either a 'magnetic moment' or a 'spin' when discussing the magnetic properties of atoms. Both are vectors pointing in the same direction - the only difference is their magnitude, and physical units.
 
-We are now familiar with magnetic moments, and in Magnos we focus on the moment due to spin angular momentum only. But
+We are now familiar with magnetic moments, and in Magnon we focus on the moment due to spin angular momentum only. But
 to model the spin angular momentum accurately, we need to switch to the quantum mechanical formalism for magnetic moments.
 
 Spin in quantum mechanics
@@ -281,7 +281,7 @@ Exchange interaction
 Origins in symmetry
 ++++++++++++++++++++
 
-The interaction we consider in Magnos is the **exchange interaction**. This is a purely quantum phenomenon, which does not have a classical analogous.
+The interaction we consider in Magnon is the **exchange interaction**. This is a purely quantum phenomenon, which does not have a classical analogous.
 
 The indistinguishability of electrons requires that the many-electron wavefunction (that depends on particle
 positions and spin states) must be antisymmetric when two electrons are exchanged. 

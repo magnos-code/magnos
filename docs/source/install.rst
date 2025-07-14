@@ -3,7 +3,7 @@ Installation
 
 Requirements
 ------------
-Before installing Magnos, please make sure your Python version and packages meet the requirements for
+Before installing Magnon, please make sure your Python version and packages meet the requirements for
 
 * Python (version 3.13 or newer)
 * `NumPy <https://numpy.org/doc/stable/index.html>`_ - for vectorised array handling (version 2.1 or newer)
@@ -16,11 +16,11 @@ all of which are available through the standard package repositories (such as Py
 PyPI (pip install)
 ------------------
 
-Magnos is most easily installed using the Python Package Index using:
+Magnon is most easily installed using the Python Package Index using:
 
 .. code-block:: bash
 
-   pip install --upgrade magnos
+   pip install --upgrade magnon
 
 conda-forge
 -----------
@@ -29,7 +29,7 @@ If you prefer installation via the Conda package manager, you may use:
 
 .. code-block:: bash
 
-   conda install conda-forge::magnos
+   conda install conda-forge::magnon
 
 Source code (tarball)
 ---------------------
@@ -41,11 +41,11 @@ Then extract the files, and create a symbolic link:
 .. code-block::
 
    tar -xf [filename].tar.gz
-   $ ln -s [filename] magnos
+   $ ln -s [filename] magnon
 
 Thanks to the symbolic link, we can install using PyPI as:
 
 .. code-block:: bash
 
-   pip install /path/to/magnos
+   pip install /path/to/magnon
 
