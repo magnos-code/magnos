@@ -108,9 +108,9 @@ bandpath:
 
 .. code-block::
 
-   magnon = magnon.MagnonSpectrum(atoms, interactions)
+   spectrum = magnon.MagnonSpectrum(atoms, interactions)
 
-   bstruct = magnon.get_band_structure(path)
+   bstruct = spectrum.get_band_structure(path)
    bstruct.plot(emin=0, emax=20, filename='basic_bands.png')
 
 .. figure:: basic_bands.png
@@ -149,7 +149,7 @@ Full script
 
     path = atoms.get_cell().bandpath(path='XGX', npoints=100, special_points=special_points)
 
-    magnon = magnon.MagnonSpectrum(atoms, interactions)
+    spectrum = magnon.MagnonSpectrum(atoms, interactions)
 
-    bstruct = magnon.get_band_structure(path)
+    bstruct = spectrum.get_band_structure(path)
     bstruct.plot(emin=0, emax=20, filename='basic_bands.png')

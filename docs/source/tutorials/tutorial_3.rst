@@ -210,9 +210,9 @@ We can finally initialize the MagnonSpectrum object with the structure and inter
 
 .. code-block::
 
-    magnon = magnon.MagnonSpectrum(atoms, interactions)
+    spectrum = magnon.MagnonSpectrum(atoms, interactions)
 
-    bstruct = magnon.get_band_structure(path)
+    bstruct = spectrum.get_band_structure(path)
     bstruct.plot(emin=0, emax=0.7, filename='Iron_BCC_bands.png')
 
 Full script
@@ -245,9 +245,9 @@ The combined script for all of the above is
 
    path = atoms.get_cell().bandpath(path='GHNGPH', npoints=60)
 
-   magnon = magnon.MagnonSpectrum(atoms, interactions)
+   spectrum = magnon.MagnonSpectrum(atoms, interactions)
 
-   bstruct = magnon.get_band_structure(path)
+   bstruct = spectrum.get_band_structure(path)
    bstruct.plot(emin=0, emax=0.7, filename='Iron_BCC_bands.png')
 
 Result
@@ -289,9 +289,9 @@ Now consider what we would have obtained without the primitivization step. Consi
 
     path = prim_atoms.get_cell().bandpath(path='GHNGPH', npoints=180)
 
-    magnon = magnon.MagnonSpectrum(atoms, interactions)
+    spectrum = magnon.MagnonSpectrum(atoms, interactions)
 
-    bstruct = magnon.get_band_structure(path)
+    bstruct = spectrum.get_band_structure(path)
     bstruct.plot(emin=0, emax=0.7, filename='Iron_BCC_bands_folded.png')
 
 We keep the primitivization, but only use it to calculate the reciprocal space path - this ensures we are consistent with the

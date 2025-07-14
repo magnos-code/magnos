@@ -20,11 +20,11 @@ Using Magnon, the simple script below can be used to obtain the bandstructure of
    interactions = interactions.symmetrize(atoms)
    primitive_atoms, primitive_interactions, _ = magnon.build.build_primitive_cell(atoms, interactions)
 
-   magnon = magnon.MagnonSpectrum(primitive_atoms,primitive_interactions,num_threads=4)
+   spectrum = magnon.MagnonSpectrum(primitive_atoms,primitive_interactions,num_threads=4)
 
    path = primitive_atoms.get_cell().bandpath(path='GNPGHN', npoints=180)
 
-   bstruct = magnon.get_band_structure(path)
+   bstruct = spectrum.get_band_structure(path)
    bstruct.plot(emin=0, emax=0.7, filename='Iron_BCC_bands.png')
 
 .. figure:: Iron_BCC_bandstructure.png

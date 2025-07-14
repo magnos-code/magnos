@@ -21,7 +21,7 @@ prim_atoms, prim_interactions, _ = magnon.build.build_primitive_cell(atoms, inte
 
 path = prim_atoms.get_cell().bandpath(path='GHNGPH', npoints=180)
 
-magnon = magnon.MagnonSpectrum(atoms, interactions)
+spectrum = magnon.MagnonSpectrum(atoms, interactions)
 
-bstruct = magnon.get_band_structure(path)
+bstruct = spectrum.get_band_structure(path)
 bstruct.plot(emin=0, emax=0.7, filename='BCC_Iron_conventional.png')

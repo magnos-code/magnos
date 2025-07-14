@@ -215,9 +215,9 @@ we did in the very first tutorial:
 
     path = atoms.get_cell().bandpath(path='GHNGPH', npoints=240, special_points=special)
 
-    magnon = magnon.MagnonSpectrum(atoms, interactions, ham_prefactor=1)
+    spectrum = magnon.MagnonSpectrum(atoms, interactions, ham_prefactor=1)
 
-    bstruct = magnon.get_band_structure(path)
+    bstruct = spectrum.get_band_structure(path)
     bstruct.plot(emin=0, emax=200, filename='FeGd_bands.png')
 
 yielding
@@ -261,9 +261,9 @@ Full script
 
     path = atoms.get_cell().bandpath(path='GHNGPH', npoints=240, special_points=special)
 
-    magnon = magnon.MagnonSpectrum(atoms, interactions, ham_prefactor=1)
+    spectrum = magnon.MagnonSpectrum(atoms, interactions, ham_prefactor=1)
 
-    bstruct = magnon.get_band_structure(path)
+    bstruct = spectrum.get_band_structure(path)
     bstruct.plot(emin=0, emax=200, filename='FeGd_bands.png')
 
     k_points = bstruct.path.cartesian_kpts()
