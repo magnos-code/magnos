@@ -48,7 +48,6 @@ mathjax3_config = {
             "braket": ["\\left\\langle #1 \\middle| #2\\right\\rangle", 2],
             "expect": ["\\left\\langle #1\\right\\rangle", 1],
         },
-        'packages': ['base', 'ams'],
     }
 }
 
