@@ -6,8 +6,8 @@ project = 'Magnos'
 copyright = '2025, Magnos Development Team'
 author = 'Magnos Development Team'
 
-release = '0.0'
-version = '0.0.0'
+release = '0.1'
+version = '0.1.0'
 
 # -- General configuration
 
@@ -18,6 +18,8 @@ extensions = [
     'sphinx.ext.autosummary',
     'sphinx.ext.intersphinx',
     'sphinx.ext.napoleon',
+    'autoapi.extension',
+    'sphinxcontrib.bibtex',
 ]
 
 intersphinx_mapping = {
@@ -31,8 +33,8 @@ templates_path = ['_templates']
 # -- Options for HTML output
 
 html_theme = 'furo'
-#html_logo = "magnos_logo.png"
-#html_favicon = 'magnos_icon.ico'
+html_logo = "magnos_logo.png"
+html_favicon = 'magnos_icon.ico'
 #html_static_path = ['_static']
 
 # -- Options for EPUB output
@@ -50,6 +52,22 @@ mathjax3_config = {
 }
 
 napoleon_google_docstring = True
+autodoc_typehints = "description"
+
+autoapi_type = 'python'
+autoapi_dirs = ['../../src/magnos']
+autoapi_ignore = ["*/coupling_test.py"]
 
 
-#html_static_path = ['source/_static']
+html_static_path = ['_static']
+
+html_css_files = [
+   'custom.css',
+]
+
+bibtex_bibfiles = ["refs.bib"]
+
+numfig = True
+math_numfig = True
+numfig_secnum_depth = 2
+math_eqref_format = "Eq.{number}"

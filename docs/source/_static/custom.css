@@ -1,0 +1,41 @@
+/* Viewer config */
+#viewer {
+    width: 100%;
+    max-width: 600px;
+    height: 600px;
+    /* margin: 2em auto; */
+    /* border: 1px solid #ccc; */
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+/* Crucial: prevent scrollbars on parent containers */
+.wy-table-responsive, .document, .highlight, .body, .container, .section {
+    overflow-x: visible !important;
+    overflow: visible !important;
+}
+
+.bibtexreference {
+  white-space: normal !important;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  line-break: anywhere;
+}
+
+/* Push .related (prev/next) to bottom of the content column */
+footer.related {
+    margin-top: auto;
+}
+
+html, body {
+    height: 100%;
+}
+
+jx-container[class*="MathJax"] {
+    overflow-y: visible !important;
+    overflow-x: auto !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+}
+
