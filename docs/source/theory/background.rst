@@ -48,30 +48,30 @@ with :math:`e` the electron charge. The area enclosed is :math:`\pi r^2`, so the
 .. math::
    :label: electron_orbits_moment
 
-   \mathbf{\mu} = I\mathbf{A}= \frac{e\mathbf{r}\times\mathbf{v} }{2}.
+   \boldsymbol{\mu} = I\mathbf{A}= \frac{e\mathbf{r}\times\mathbf{v} }{2}.
 
 The orbital angular momentum is defined as :math:`\mathbf{L} = m \mathbf{r}\times \mathbf{v}`, so
 
 .. math::
    :label: electron_orbits_moment_L
 
-    \mathbf{\mu}= \frac{e}{2m} \mathbf{L}.
+    \boldsymbol{\mu}= \frac{e}{2m} \mathbf{L}.
 
-So far we focused on a classical charged particle. The quantum mechanical description of the electron angular momentum is done in terms of quantum-mechanical operators, which have eigenvalues that are quantized and integer multiples of the reduced Planck constant :math:`\hbar`. Therefore, also the corresponding magnetic moment is quantized, and conveniently described using the **Bohr magneton** as unit,
+So far we have focused on a classical charged particle. The quantum-mechanical description of the electron angular momentum requires quantum-mechanical operators, which have eigenvalues that are quantized, integer multiples of the reduced Planck constant :math:`\hbar`. Therefore, the magnetic moment is also quantized, and conveniently described using the **Bohr magneton** unit,
 
 .. math::
    :label: bohr_magneton
 
-   \mu_B = -\frac{e\hbar}{2m},
+   \mu_B = \frac{e\hbar}{2m},
 
 where :math:`m` is the electronic mass. Then, the magnetic moment is a multiple of this unit,
 
 .. math::
    :label: electron_orbit_mu_bohr_magneton
 
-   \mathbf{\mu} = \tilde{\mathbf{L}}\mu_B,
+   \boldsymbol{\mu} = \tilde{\mathbf{L}}\mu_B,
 
-where :math:`\tilde{\mathbf{L}}` is the dimensionless angular momentum quantum number. Often in the literature the tilde is omitted.
+where :math:`\tilde{\mathbf{L}}` is the dimensionless angular momentum vector. Often in the literature the tilde is omitted.
 
 In summary, we have seen that when an electron orbits an atom, its orbital motion generates a magnetic field which we quantify in terms of a magnetic moment. 
 In the next section, we will see that this is not the only source of angular momentum within the atom. There also exists an intrinsic ‘spin’ angular momentum, which has a quantum-mechanical origin and no classical counterpart.
