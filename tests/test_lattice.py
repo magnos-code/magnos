@@ -1,8 +1,8 @@
 # import unittest
 # import numpy as np
 #
-# from mabs.build import cell_transformation, convert_kpts
-# from mabs.lattice import cartesian_k_from_scaled, reciprocal_lattice, scaled_k_from_cartesian
+# from magnon.build import cell_transformation, convert_kpts
+# from magnon.lattice import cartesian_k_from_scaled, reciprocal_lattice, scaled_k_from_cartesian
 #
 # class TestCellTransformation(unittest.TestCase):
 #

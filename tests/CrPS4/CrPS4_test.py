@@ -42,8 +42,8 @@ class TestCrPS4(unittest.TestCase):
 
         path = atoms.get_cell().bandpath(special_kpts, npoints=50, special_points=special_kpts)
 
-        magnon = magnon.MagnonSpectrum(atoms, interactions, num_threads=2)
-        bstruct = magnon.get_band_structure(path)
+        magnon_spectrum = magnon.MagnonSpectrum(atoms, interactions, num_threads=2)
+        bstruct = magnon_spectrum.get_band_structure(path)
 
         if self.do_overwrite:
             data = {
@@ -91,8 +91,8 @@ class TestCrPS4(unittest.TestCase):
 
         path = atoms.get_cell().bandpath(special_kpts, npoints=50, special_points=special_kpts)
 
-        magnon = magnon.MagnonSpectrum(atoms, interactions, num_threads=2)
-        bstruct = magnon.get_band_structure(path)
+        magnon_spectrum = magnon.MagnonSpectrum(atoms, interactions, num_threads=2)
+        bstruct = magnon_spectrum.get_band_structure(path)
 
         energies=bstruct.energies.squeeze(axis=0).T
 
