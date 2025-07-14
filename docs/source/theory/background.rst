@@ -86,12 +86,12 @@ In 1922 Stern and Gerlach proved experimentally that electrons have an additiona
 
    The name 'spin' was established by early proposals which suggested that the newly-discovered angular momentum came from the electron spinning about some axis, like a spinning top. This is now known not to be the case, as it would require the surface of the electron to move faster than the speed of light!
 
-The spin angular momentum leads to a magnetic moment also, with a similar (but modified) form,
+The spin angular momentum leads to a magnetic moment too, with a similar (but modified) form,
 
 .. math::
    :label: spin_moment
 
-   \textbf{\mu} = g\textbf{S}\mu_B,
+   \boldsymbol{\mu} = g\textbf{S}\mu_B,
 
 where :math:`\textbf{S}` is the spin angular momentum. :math:`g` is the **spin g-factor**, which is approximately :math:`2`. The appearance of this additional factor is not too surprising; our original choice of unit, the Bohr magneton, was derived by considering orbiting electrons - but the spin angular momentum has nothing to do with orbits, so there is no reason why it should be similarly expressed as a straightforward multiple only of :math:`\mu_B`.
 
@@ -122,10 +122,10 @@ The most fundamental properties of spin angular momentum operators in quantum me
        \left[\hat{S}^z, \hat{S}^x\right] &= i\hbar \hat{S}^y
    \end{aligned}.
 
-The derivation of these commutation relations is discussed in reference textbooks of quatum mechanics books, see e.g. J. J. Sakurai and J. Napolitano, Modern Quantum Mechanics, second edition, Addison-Wesley Pearson 2011. 
-We also note that the commutation relations for the spin operators are analogous to those satisfied by the orbital angular momentum (see e.g. Georgi, LIE ALGEBRAS IN PARTICLE PHYSICS, Westview Press 1999 for details), and the latter can be directly derived writing the orbotal angular momentum in terms of position and momentum operators, :math:`\hat{\mathbf{L}} = \hat{\mathbf{r}} \times \hat{\mathbf{p}}`, and then explicitly computing the commutators in term of the standard canonical commutation relation  :math:`[{r}_i , p_j]=i\hbar\delta_{i,j}`. 
+The derivation of these commutation relations is discussed in many quantum mechanics textbooks, see e.g. *J. J. Sakurai and J. Napolitano, Modern Quantum Mechanics, 2ed, Addison-Wesley Pearson 2011*.
+We also note that the commutation relations for the spin operators are analogous to those satisfied by the orbital angular momentum (see e.g. *H. Georgi, LIE ALGEBRAS IN PARTICLE PHYSICS, Westview Press 1999* for details), and the latter can be directly derived by writing the orbital angular momentum in terms of position and momentum operators, :math:`\hat{\mathbf{L}} = \hat{\mathbf{r}} \times \hat{\mathbf{p}}`, and then explicitly computing the commutators in term of the standard canonical commutation relation  :math:`[{r}_i , p_j]=i\hbar\delta_{i,j}`.
 
-These commutation relations mean that two or more components of the spin angular momentum are not simultaneously well-defined.
+These commutation relations mean that any two components of the spin angular momentum are not simultaneously well-defined.
 
 Total Spin operator
 +++++++++++++++++++++++++++++++
@@ -137,7 +137,7 @@ We also define the operator
 
    \hat{\mathbf{S}}^2 = (\hat{S}^x)^2 + (\hat{S}^y)^2 + (\hat{S}^z)^2,
 
-and it is easily shown that this commutes with each of the operators for the x,y and z components.
+and it is easily shown that this commutes with each of the operators for the x-,y- and z-components.
 
 Ladder operators
 ++++++++++++++++
@@ -164,12 +164,12 @@ henceforth taken as the z-axis. We consider a state :math:`\ket{m}` which is an 
    \hat{S}^{z} \hat{S}^{\pm} \ket{m} = (m\pm 1) \hat{S}^{\pm} \ket{m},
 
 so that the states :math:`\hat{S}^{\pm} \ket{m}` may be identified with new states :math:`\ket{m\pm1}`, and it is clear that
-the operator :math:`\hat{S}^{+}` (:math:`\hat{S}^{-}`) increases (decreases) the eigenvalue of :math:`\hat{S}^z` by one quanta of spin angular momentum, with the peculiarities discussed below.
+the operator :math:`\hat{S}^{+}` (:math:`\hat{S}^{-}`) increases (decreases) the eigenvalue of :math:`\hat{S}^z` by one quantum of spin angular momentum, with the peculiarities discussed below.
 
 Quantum number #2: :math:`s`
 +++++++++++++++++++++++++++++
 
-The spin angular momentum is finite, so there must be an upper and lower bound on the eigenvalues the z-component of spin can adopt.
+The spin angular momentum is finite, so there must be an upper and lower bound on the eigenvalues the z-component of spin may adopt.
 We will therefore consider the state :math:`\ket{s}`, where :math:`s\hbar` is the maximum z-component of spin angular
 momentum.
 
@@ -194,7 +194,7 @@ Eigenspectrum
 .. figure:: quantised_spin.png
    :figwidth: 400
 
-   *A visualisation of spin states with fixed spin magnitude and determinate z-component, but indeterminate x- and y-components. The z-component is quantised in units of :math:`\hbar`.*
+   *A visualisation of spin states with fixed spin magnitude and determinate z-component, but indeterminate x- and y-components.*
 
 The spin angular momentum states are defined by the quantum numbers :math:`s` and :math:`m`:
 
@@ -217,7 +217,7 @@ Consider a state of two spins, which have only :math:`m=\pm\frac{1}{2}`; there a
    \ket{\uparrow\uparrow}, \ket{\uparrow\downarrow}, \ket{\downarrow\uparrow}, \ket{\downarrow\downarrow},
 
 and we wish to categorise these using the quantum numbers :math:`s` and :math:`m`. Components of angular momentum along
-a certain axis is additive, so e.g.
+a certain axis are additive, so e.g.
 
 .. math::
    :label: additive_spin_operators
@@ -227,7 +227,7 @@ a certain axis is additive, so e.g.
 So we can categorise the four states under :math:`m` easily enough.
 
 In quantum mechanics, particles such as electrons are indistinguishable. This means that if we have two electrons, it is not
-possible to say which one is which. This symmetry must be reflected in the quantum mechanical wavefunction when we swap the order of the electrons.
+possible to say which one is which. This symmetry must be reflected in the quantum-mechanical wavefunction when we swap the order of the electrons.
 The states :math:`\ket{\uparrow\uparrow}` and :math:`\ket{\downarrow\downarrow}` satisfy this already, but the other two must be replaced by
 symmetric linear combinations,
 
@@ -281,11 +281,11 @@ Exchange interaction
 Origins in symmetry
 ++++++++++++++++++++
 
-The interaction we consider in Magnon is the **exchange interaction**. This is a purely quantum phenomenon, which does not have a classical analogous.
+The interaction we consider in Magnon is the **exchange interaction**. This is a purely quantum phenomenon, which does not have a classical analogy.
 
 The indistinguishability of electrons requires that the many-electron wavefunction (that depends on particle
 positions and spin states) must be antisymmetric when two electrons are exchanged. 
-Considering the paradigmatic example of a two-electron wavefunction :math:`\Phi(\mathbf{r}_1,\mathbf{r}_2,s_1,s_2)`, where :math:`\mathbf{r}_1,\mathbf{r}_2` are electron's positions, and :math:`s_1,s_2` are spin quantum numbers. Focusing the case where the total wavefunction can be expressed as a direct product of spatial :math:`\psi(\mathbf{r}_1,\mathbf{r}_2)` and spin part :math:`\chi(s_1,s_2)`, 
+Consider the paradigmatic example of a two-electron wavefunction :math:`\Phi(\mathbf{r}_1,\mathbf{r}_2,s_1,s_2)`, where :math:`\mathbf{r}_1,\mathbf{r}_2` are electron positions, and :math:`s_1,s_2` are spin quantum numbers. Focusing the case where the total wavefunction can be expressed as a direct product of spatial :math:`\psi(\mathbf{r}_1,\mathbf{r}_2)` and spin part :math:`\chi(s_1,s_2)`,
 
 .. math::
    :label: exchange_symmetry_violation
@@ -308,7 +308,7 @@ which means
 
    \mathbf{S}_1 \cdot \mathbf{S}_2 = \frac{1}{2} \left[ (\mathbf{S}_{tot})^2 - (\mathbf{S}_1)^2 - (\mathbf{S}_2)^2 \right],
 
-from which we see that the dot product of two spin vectors depends on the :math:`s` quantum number of the joint spin state. (this is the eigenvalue of :math:`(\mathbf{S}_{tot})^2`).
+from which we see that the dot product of two spin vectors depends on the :math:`s` quantum number of the joint spin state (this is the eigenvalue of :math:`(\mathbf{S}_{tot})^2`).
 However, we have already showed that:
 
 * this quantum number determines the symmetry of the spin part of the wavefunction (under the exchange of spins),
