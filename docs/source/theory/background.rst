@@ -191,11 +191,6 @@ of :math:`S^+` destroys the state. Then
 Eigenspectrum
 ++++++++++++++
 
-.. figure:: quantised_spin.png
-   :figwidth: 400
-
-   *A visualisation of spin states with fixed spin magnitude and determinate z-component, but indeterminate x- and y-components.*
-
 The spin angular momentum states are defined by the quantum numbers :math:`s` and :math:`m`:
 
 * :math:`s` is fixed by the species of particle. For example, electrons have :math:`s = \frac{1}{2}`.
