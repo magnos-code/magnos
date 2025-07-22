@@ -96,7 +96,7 @@ Holstein and Primakoff :cite:`holstein1940` addressed the non-trivial problem of
 
 where it can be shown that this transformation satisfies the commutation relations :math:`[\hat{S}^{+}_{\mathbf{R}b},\hat{S}^{-}_{\mathbf{R'}b'} ]= 2\hbar \hat{S}^z_{\mathbf{R}b}\delta_{\mathbf{R},\mathbf{R'}}\delta_{b,b'}` and :math:`[\hat{S}^{z}_{\mathbf{R}b},\hat{S}^{\pm}_{\mathbf{R'}b'} ]=\pm \hbar \hat{S}^{\pm}_{\mathbf{R}b}\delta_{\mathbf{R},\mathbf{R'}}\delta_{b,b'}`
 
-These commutation relations imply that the number of quasiparticles excitations that we can have at each site is limited to :math:`2 S_{\mathbf{R}b}The z-component of spin can be written as:
+These commutation relations imply that the number of quasiparticles excitations that we can have at each site is limited to :math:`2 S_{\mathbf{R}b}`. The z-component of spin can be written as:
 
 .. math::
    :label: holstein_primakoff_z
@@ -192,7 +192,7 @@ In general, the description based on the primitive cell is preferable for the fo
 
 .. figure:: mag_ord.png
 
-   * Two physically equivalent ways to represent an antiferromagnet: left, using a magnetic ordering wavevector; right, using a supercell. The left approach is practically more convenient as it exploits all crystal symmetries and results in a lower computational cost.*
+   *Two physically-equivalent ways to represent an antiferromagnet: left, using a magnetic ordering wavevector; right, using a supercell. The left approach is practically more convenient as it exploits all crystal symmetries and results in a lower computational cost.*
 
 
 Eigensolution
