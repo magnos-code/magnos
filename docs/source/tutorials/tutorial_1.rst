@@ -4,7 +4,7 @@ Tutorial #1: The Basics
 **Aims**:
 
 * Gain familiarity with the ASE Atoms object
-* Define a basic exchange interaction by hand
+* Define basic exchange interactions
 * Plot a simple bandstructure
 
 Importing the package
@@ -26,9 +26,9 @@ Setting up the cell
 
 .. figure:: basic.png
 
-   *Figure 1. The structure and interactions we're considering for this first example. The centre cell is the unit cell, and those to the left and right are images under the periodic boundary conditions. The black arrows show the magnetic moment vectors and the red arrows represent exchange interactions.*
+   *The structure and interactions considered in this first example. The centre cell is the unit cell, and those to the left and right are images under the periodic boundary conditions. The black arrows show the magnetic moment vectors and the red arrows represent exchange interactions.*
 
-Figure 1 shows the structure we're considering in this example. We have a cubic unit cell of side length :math:`1` Angstrom, which we
+Fig. 8 shows the structure we're considering in this example. We have a cubic unit cell of side length :math:`1` Angstrom, which we
 define as follows. Each row is one of the lattice vectors.
 
 .. code-block::
@@ -69,7 +69,7 @@ supplying our atomic structure via the ASE Atoms object,
 
    interactions = magnon.InteractionList([], atoms=atoms)
 
-In Figure 1, the red arrows show that the spin interacts with its own image (under periodic boundary conditions) at displacements :math:`-\hat{\mathbf{x}}` and :math:`+\hat{\mathbf{x}}` from itself. We append these interactions as
+In Figure 8, the red arrows show that the spin interacts with its own image (under periodic boundary conditions) at displacements :math:`-\hat{\mathbf{x}}` and :math:`+\hat{\mathbf{x}}` from itself. We append these interactions as
 
 .. code-block::
 
@@ -115,9 +115,9 @@ bandpath:
 
 .. figure:: basic_bands.png
 
-   *Figure 2. The bandstructure obtained by following the steps in this tutorial.*
+   *The bandstructure obtained by following the steps in this tutorial.*
 
-We obtain the plot in Figure 2. This shows the expected :math:`\mathbf{k}^2` dependence of the band around the :math:`\Gamma` point for a ferromagnet.
+We obtain the plot in Figure 9. This shows the expected :math:`\mathbf{k}^2` dependence of the band around the :math:`\Gamma` point for a ferromagnet.
 
 Full script
 -----------

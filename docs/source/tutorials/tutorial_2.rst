@@ -33,14 +33,14 @@ Interactions from symmetry #1
 .. figure:: simple_cubic_3d.png
    :figwidth: 600
 
-   *Figure 1. A monatomic simple cubic cell, with nearest-neighbour periodic images shown. The solid arrow interaction is initially specified, and the rest are generated from symmetry.*
+   *A monatomic simple cubic cell, with nearest-neighbour periodic images shown. The solid arrow interaction is initially specified, and the rest are generated from symmetry.*
 
 In the first tutorial, we set up the interactions one at a time by adding them to an :code:`InteractionList`. This is feasible for
 small toy models, but for larger models we may want to specify a smaller, minimal set of couplings which can then be augmented
 by the rest generated using the symmetry of the unit cell. This is especially useful for reproducing magnon bandstructures
 in the literature from a table of :math:`J` values.
 
-In this tutorial, we are considering the same unit cell as in the previous tutorial. However, as shown in Figure 1, we now
+In this tutorial, we are considering the same unit cell as in the previous tutorial. However, as shown in Figure 10, we now
 want all six nearest-neighbour interactions (i.e. we are moving to couplings in three dimensions). We start by supplying only one of these interactions:
 
 .. code-block::
@@ -86,7 +86,7 @@ Now try changing the symmetry of the cell. Keep the script the same except for c
 .. figure:: simple_cubic_3d_stretched.png
    :figwidth: 600
 
-   *Figure 2. The same structure as in the first part, but with the lattice stretched in the z-direction to reduce the symmetry*
+   *The same structure as in the first part, but with the lattice stretched in the z-direction to reduce the symmetry*
 
 Now run the script again. You will see:
 
@@ -105,9 +105,9 @@ Interactions from symmetry #3
 .. figure:: simple_cubic_3d_stretched2.png
    :figwidth: 600
 
-   *Figure 3. The cell from part #2 with a second interaction (solid blue arrow) added. Four new interactions are generated under symmetry (dotted arrows).*
+   *The cell from part #2 with a second interaction (solid blue arrow) added. Four new interactions are generated under symmetry (dotted arrows).*
 
-Keeping the same stretched cell, we now add a second interaction along the z-axis, as shown in Figure 3:
+Keeping the same stretched cell, we now add a second interaction along the z-axis, as shown in Figure 12:
 
 .. code-block::
 
