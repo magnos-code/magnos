@@ -12,9 +12,9 @@ The starting point to describe magnon excitations is the Heisenberg Hamiltonian 
 .. math::
    :label: general_heisenberg_hamiltonian
 
-   H = -\frac{1}{2}\sum_{\mathbf{R},\mathbf{R'}} \sum_{b,b'} \sum_{\alpha, \alpha'} \hat{S}^{\alpha}_{\mathbf{R}b} J^{\alpha\alpha'}_{\mathbf{R}n\mathbf{R'}b'} \hat{S}^{\alpha'}_{\mathbf{R'}b'},
+   H = -\frac{1}{2}\sum_{\mathbf{R},\mathbf{R'}} \sum_{b,b'} \sum_{\alpha, \alpha'} \hat{S}^{\alpha}_{\mathbf{R}b} J^{\alpha\alpha'}_{\mathbf{R}b\mathbf{R'}b'} \hat{S}^{\alpha'}_{\mathbf{R'}b'},
 
-where :math:`\mathbf{R}, \mathbf{R'}` are direct lattice vectors, :math:`b,b'` are indices that label magnetic sites with positions :math:`\mathbf{\tau}_b,\mathbf{\tau}_{b'}` in the unit cell, and :math:`\alpha,\alpha'` are the Cartesian indices :math:`{x,y,x}` used to label entries of the vectors :math:`\mathbf{R}+\mathbf{\tau}_b,\; \mathbf{R'}+\mathbf{\tau}_{b'}` (see Fig. 3). :math:`J` is the strength of the exchange coupling interaction in units of energy, and :math:`\hat{S}^{\alpha}` is the quantum mechanical operator associated with the :math:`\alpha`-component of spin angular momentum, in units of :math:`\hbar`.
+where :math:`\mathbf{R}, \mathbf{R'}` are direct lattice vectors, :math:`b,b'` are indices that label magnetic sites with positions :math:`\mathbf{\tau}_b,\mathbf{\tau}_{b'}` in the unit cell, and :math:`\alpha,\alpha'` are the Cartesian indices :math:`{x,y,x}` used to label entries of the vectors :math:`\mathbf{R}+\mathbf{\tau}_b,\; \mathbf{R'}+\mathbf{\tau}_{b'}` (see Fig. 3). :math:`J` is the strength of the exchange coupling interaction in units of energy, and :math:`\hat{S}^{\alpha}` is the quantum-mechanical operator associated with the :math:`\alpha`-component of spin angular momentum, in units of :math:`\hbar`.
 
 .. figure:: R_tau.png
    :figwidth: 400
@@ -26,26 +26,26 @@ components. The simplest case is an identity matrix in these indices, multiplied
 to the basic form given in the previous section. The most general form of the Heisenberg Hamiltonian allows us to describe the following exchange interactions:
 
 **Direct exchange**
-This interaction involves magnetic moments that are sufficiently close in space to have onverlapping wavefunctions.
+This interaction involves magnetic moments that are sufficiently close in space to have overlapping wavefunctions.
 When involving electrons within the same atom or molecule (intra-atomic or molecular), the direct exchange is generally positive and underlies Hund's rule --- i.e., the Coulomb repulsion between electrons generally favours an overall antisymmetric fermionic wavefunction that is spatially antisymmetric and spin symmetric.
-In the case of a solid, the direct exchange involves magnetic moments in electrical insulators that are localized on magnetic sites; it can be positive or negative --- in the former case favouring a parallel (ferromagnetic) alignmen of the magnetic moments, and in the latter case favouring an antiparallel (antiferromagnetic) alignmen of the magnetic moments :cite:`coronadoMolecularMagnetismMolecular1996`.
+In the case of a solid, the direct exchange involves magnetic moments in electrical insulators that are localized on magnetic sites; it can be positive or negative --- in the former case favouring a parallel (ferromagnetic) alignment of the magnetic moments, and in the latter case favouring an antiparallel (antiferromagnetic) alignment of the magnetic moments :cite:`coronadoMolecularMagnetismMolecular1996`.
 
-These direct exchange interactions populate the elements :math:`J_{\mathbf{R}b\mathbf{R}'b'}^{\alpha\alpha}`, generally separated by a distance :math:`d= ||\mathbf{R}+\mathbf{\tau}_b-\mathbf{R}-\mathbf{\tau}_{b'}||` that is suffuciently small to allow overlap between wavedunctions (few :math:`\AA`).
+These direct exchange interactions populate the elements :math:`J_{\mathbf{R}b\mathbf{R}'b'}^{\alpha\alpha}` generally separated by a distance :math:`d= ||\mathbf{R}+\mathbf{\tau}_b-\mathbf{R}-\mathbf{\tau}_{b'}||` which is sufficiently small to allow overlap between wavefunctions.
 
 **Indirect exchange**
 This interaction involves magnetic moments that are spatially separated by distances sufficiently large to prevent significant wavefunction overlaps, and their coupling is mediated by an intermediary entity, such as an itinerant electron (RKKY interaction named after Ruderman,
 Kittel, Kasuya and Yosida, emerging in metals) or a intermediate nonmagnetic atom (superexchange interaction emerging in electrical insulators).
-These indirect interaction terms are also described by couplings :math:`J_{\mathbf{R}b\mathbf{R}'b'}^{\alpha\alpha}`, but involve a separation distance :math:`d= ||\mathbf{R}+\mathbf{\tau}_b-\mathbf{R}-\mathbf{\tau}_{b'}||` larger compared to the direct exchange case.
+These indirect interaction terms are also described by couplings :math:`J_{\mathbf{R}b\mathbf{R}'b'}^{\alpha\alpha}`, but involve a separation distance :math:`d= ||\mathbf{R}+\mathbf{\tau}_b-\mathbf{R}-\mathbf{\tau}_{b'}||` larger than in the direct exchange case.
 
 **Kitaev interaction**
-This is an anisotropic, bond-directional interaction between spins in a 2D honeycomb lattices :cite:`kitaevAnyonsExactlySolved2006`.
+This is an anisotropic, bond-directional interaction between spins in 2D honeycomb lattices :cite:`kitaevAnyonsExactlySolved2006`.
 Depending on the direction of the bond, the interaction either takes the form :math:`J_{\mathbf{R}b\mathbf{R'}b'}^{xx}S_{\mathbf{R}b}^x S_{\mathbf{R'}b'}^x`,
 :math:`J_{\mathbf{R}b\mathbf{R'}b'}^{yy}S_{\mathbf{R}b}^y S_{\mathbf{R'}b}^y` or :math:`J_{\mathbf{R}b\mathbf{R'}b'}^{zz}S_{\mathbf{R}b}^z S_{\mathbf{R'}b'}^z`.
 
 
 **Dzyaloshinskii-Moriya interaction**
 This exchange originates from from the spin-orbit interaction, and it is described by an Hamiltonian involving the vector product between two spin vectors,  :math:`H_{1,2}=\mathbf{D}_{1,2}\cdot[\mathbf{S}_1 \times \mathbf{S}_2]` :cite:`coronadoMolecularMagnetismMolecular1996`.
-This interaction populate the elements :math:`J_{\mathbf{R}b\mathbf{R}'b'}^{\alpha\alpha'}` which are off-diagonal i.e. :math:`\alpha\ne\alpha'`
+This interaction populates the elements :math:`J_{\mathbf{R}b\mathbf{R}'b'}^{\alpha\alpha'}` which are off-diagonal i.e. :math:`\alpha\ne\alpha'`
 
 Holstein-Primakoff Transformation
 ----------------------------------
