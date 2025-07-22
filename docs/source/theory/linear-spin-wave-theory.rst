@@ -164,8 +164,7 @@ Since the ferromagnetic spin vector is just :math:`[0, 0, 1]` this means that :m
 in the direction of the spin, and with the other two vectors should form an orthonormal basis.
 
 To write the Hamiltonian in terms of :math:`\hat{b}_{\mathbf{R}b}` and :math:`\hat{b}_{\mathbf{R}b}^\dagger`, we write in terms of
-:math:`S_{\mathbf{R}b}^{\pm}` and :math:`S_{\mathbf{R}b}^{z}` and use the linear-spin wave theory transformation discussed in the previous section. We find that the factors of complex :math:`i` introduced by the conversion to :math:`S_{\mathbf{R}b}^{\pm}` makes it more natural to
-use the vectors
+:math:`S_{\mathbf{R}b}^{\pm}` and :math:`S_{\mathbf{R}b}^{z}` and use the linear-spin wave theory transformation discussed in the previous section. Considering the conventions used to so far in the definitions of :math:`S_{\mathbf{R}b}^{\pm}`, it is natural to use the following vectors to describe rotations :cite:`toth2015`
 
 .. math::
    :label: u_v_vectors
@@ -179,37 +178,34 @@ These vectors are generated internally by Magnon from the spin direction vectors
 Cell rotation
 +++++++++++++++
 
-The cell rotation, being commensurate with the lattice, may be represented by a wavevector where the angle of rotation
-in a given cell is
+The cell rotation is commensurate with the lattice, and therefore can be represented by a reciprocal wavevector belonging to the first Brillouin zone :math:`\mathbf{k}_{rot}`, which determines the rotation angle through the usual dot product between direct and reciprical wavevector:
 
 .. math::
    :label: cell_rotation_angle
 
    \theta = \mathbf{k}_{rot}\cdot\mathbf{R}.
 
-A rotation axis should also be specified. Magnon takes :math:`\mathbf{k}_rot` and applies the magnetic ordering.
+The effect of the rotation is visually represented in Fig. 6 (left panel). We also note that the cell rotation and site rotation depend on the definition of the unit cell --- Fig. 6 shows that a cell rotation involving two adjacent primitice cells containing one magnetic moment, can be eqiuvalently described as a site rotation in a 2x supercell of the primitive that contains two magnetic moments. 
+To be precise, here with primitive magnetic cell we mean the minimum cardinality set of magnetic moments that allows to describe the material through periodic repetitions, while a unit cell is not necessarily a minimum-cardinality set (e.g., a unit cell can be a supercell of the primitive cell).
+In general, the description based on the primitive cell is preferable for the following reasons: it exploits all the crystal symmetries and hence has a lower computational cost; (ii) it yields the simplest possible magnon bandstructure in the largest possible Brillouin zone (in contrast, the supercell approach yields a folded bandstructure, i.e., with a larger number of bands in a smaller primitive cell).
+
 
 .. figure:: mag_ord.png
 
-   * Two physically equivalent ways to represent an antiferromagnet: left, using a magnetic ordering wavevector; right, using a supercell. The left approach is practically more convenient.*
+   * Two physically equivalent ways to represent an antiferromagnet: left, using a magnetic ordering wavevector; right, using a supercell. The left approach is practically more convenient as it exploits all crystal symmetries and results in a lower computational cost.*
 
-
-If it is possible to represent a structure using a magnetic ordering wavevector, it is better to represent it this way than
-manually building the ordering by inputting a supercell (the two options for a simple example are shown in Fig. 6).
-The supercell will not be the primitive cell, which will lead to spurious additional bands.
 
 Eigensolution
 --------------
 
 In the previous section, we saw how to set up the Hamiltonian using creation and annihilation operators for different ground state
-spin configurations. Now, we are ready to diagonalize. This will give us the eigenstates and eigenenergies of the Hamiltonian,
-which are the longest-lived excitations under the model. This is because the Hamiltonian determines the time evolution of the system; an
-eigenstate will be unchanged under time evolution.
+spin configurations. Representing this Hamiltonian in reciprocal space and diagonalizing it yields magnon eigenstates and eigenenergies, which are a convenient basis set to describe arbitrary excitations by linear superimposition. 
+
 
 Magnons
 --------
 
-As with many excitations, we find that we need to Fourier transform to get the eigenstates,
+In crystalline solids characterized by translational symmetry, the Magnon Hamiltonian assumes a simplified for in reciprocal (Fourier) space:
 
 .. math::
    :label: operator_fourier_transform
@@ -218,8 +214,8 @@ As with many excitations, we find that we need to Fourier transform to get the e
 
    \hat{b}_{\mathbf{R}b}^\dagger = \frac{1}{\sqrt{N}} \sum_{\mathbf{k}} \hat{b}_{\mathbf{k}b}^\dagger e^{-i\mathbf{k}\cdot (\mathbf{R}+\boldsymbol{\tau_b})}.
 
-The excitations created and destroyed by these operators are then **spin waves** or **magnons** rather than spin-flip excitations.
-A magnon represents a spin flip smeared out over many spins, as shown in Fig. 7c.
+where the sum over :math:`\mathbf{k}` spans :math:`N` wavevectors that uniformly span the first Brillouin zone.
+The excitations created and destroyed by these operators are called **spin waves** or **magnons**, and represent perturbations of the spin directions distributed over many magnetic sites, as shown in Fig. 7c.
 
 .. figure:: spin_excitations.png
 
@@ -306,10 +302,7 @@ This Hamiltonian is implemented in the MagnonSpectrum class in Magnon.
 Bogoliubov transformation
 -------------------------
 
-Notation
-+++++++++
-
-Let's denote the above Hamiltonian
+The Heisenberg Hamiltonian discussed before can be written in a simpler form through a Bogoliubov transform :cite:`colpa1978`:
 
 .. math::
    :label: bdg_compact
@@ -338,10 +331,10 @@ and :math:`\mathcal{B}` is the 'Bogoliubov-de-Gennes'-type matrix,
    B_{3bb'}&B_{4bb'}\\
    \end{pmatrix}.
 
-Original commutator
+Commutator in Bogoliubov notation
 +++++++++++++++++++
 
-We now check the commutator,
+The commutator between the operators :math:`b_{\mathbf{k}\rho}` and :math:`b_{\mathbf{k}\rho'}^\dagger` can be evaluated through some algebra:
 
 .. math::
    :label: original_commutator
@@ -359,12 +352,12 @@ We now check the commutator,
 
    = \tilde{\delta}_{\rho\rho'},
 
-where :math:`\delta` is the identity matrix and :math:`\tilde{\delta}` is the **paraidentity** matrix, following Colpa.
+where :math:`\delta` is the identity matrix and :math:`\tilde{\delta}` is the **paraidentity** matrix, following Colpa :cite:`colpa1978`.
 
 Transformation conditions
 +++++++++++++++++++++++++
 
-We wish to transform the creation and annihilation operator basis to one in which the Hamiltonian is diagonal,
+We want to find the transformation that reduces the Hamiltonian to diagonal form, i.e.,
 
 .. math::
    :label: diagonalised_hamiltonian
@@ -373,14 +366,14 @@ We wish to transform the creation and annihilation operator basis to one in whic
 
    = \beta_{\mathbf{k}\mu}^\dagger\mathcal{E}_{\mu\mu'}(\mathbf{k})\beta_{\mathbf{k}\mu'}.
 
-However, we must ensure that the commutator above is preserved,
+while also preserving the above commutator relations,
 
 .. math::
    :label: commutator_condition
 
    [\beta_{\mathbf{k}\mu},\beta_{\mathbf{k}\mu'}^\dagger] = \tilde{\delta}_{\mu\mu'}.
 
-It can be shown that this imposes the condition
+It can be shown :cite:`colpa1978` that such a transformation has to fulfill the following condition:
 
 .. math::
    :label: paraunitary_transformation_condition
@@ -390,7 +383,8 @@ It can be shown that this imposes the condition
 Diagonalization procedure
 ++++++++++++++++++++++++++
 
-The diagonalization procedure which sustains this condition is due to Colpa :cite:`colpa1978`. First, we Cholesky decompose our Bogoliubov-de-Gennes-like Hamiltonian,
+The diagonalization procedure implemented in Magnon follows Colpa :cite:`colpa1978`. 
+First, we perform a Cholesky decomposition of our Bogoliubov-de-Gennes-like Hamiltonian,
 
 .. math::
    :label: cholesky_decomposition
@@ -446,7 +440,7 @@ Limitations of Linear Spin Wave Theory
 
 There are known limitations of using Linear Spin Wave Theory:
 
-* The derivation assumes a small excitation number. This means the temperature should be low enough that there are not too many magnons.
-* The Hamiltonian may lead to spurious symmetry enhancement - see Gohlke (2023) :cite:`gohlke2023`
+* The derivation assumes a small magnon excitation number. This means the temperature should be low enough that there are not too many magnons.
+* The Hamiltonian may lead to spurious symmetry enhancement - see Gohlke (2023) :cite:`gohlke2023`.
 
 
