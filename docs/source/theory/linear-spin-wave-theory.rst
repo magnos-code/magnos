@@ -7,106 +7,85 @@ Heisenberg Hamiltonian
 General Heisenberg Hamiltonian
 +++++++++++++++++++++++++++++++
 
-The starting point to describe magnon excitations is the Heisenberg Hamiltonian written in a general form (applicable to any material),
+The starting point to describe magnon excitations is the Heisenberg Hamiltonian written in general form (i.e., before performing any material-specific simplification),
 
 .. math::
    :label: general_heisenberg_hamiltonian
 
    H = -\frac{1}{2}\sum_{\mathbf{R},\mathbf{R'}} \sum_{b,b'} \sum_{\alpha, \alpha'} \hat{S}^{\alpha}_{\mathbf{R}b} J^{\alpha\alpha'}_{\mathbf{R}n\mathbf{R'}b'} \hat{S}^{\alpha'}_{\mathbf{R'}b'},
 
-where :math:`\mathbf{R}, \mathbf{R'}` are direct lattice vectors, :math:`b,b'` are indices that label magnetic sites in the unit cell, and
-:math:`\alpha,\alpha'` are the Cartesian indices :math:`{x,y,x}`. :math:`J` is the strength of the exchange coupling interaction
-in units of energy, and :math:`\hat{S}^{\alpha}` is the quantum mechanical operator associated with the :math:`\alpha`-component
-of spin angular momentum, in units of :math:`\hbar`.
+where :math:`\mathbf{R}, \mathbf{R'}` are direct lattice vectors, :math:`b,b'` are indices that label magnetic sites with positions :math:`\mathbf{\tau}_b,\mathbf{\tau}_{b'}` in the unit cell, and :math:`\alpha,\alpha'` are the Cartesian indices :math:`{x,y,x}` used to label entries of the vectors :math:`\mathbf{R}+\mathbf{\tau}_b,\; \mathbf{R'}+\mathbf{\tau}_{b'}` (see Fig. 3). :math:`J` is the strength of the exchange coupling interaction in units of energy, and :math:`\hat{S}^{\alpha}` is the quantum mechanical operator associated with the :math:`\alpha`-component of spin angular momentum, in units of :math:`\hbar`.
 
 .. figure:: R_tau.png
    :figwidth: 400
 
-   *Explanation of the notation used. The position vector of a site is split into a lattice vector part and a unit cell part.*
+   *Explanation of the notation used. The position vector of a site is split into the sum of a direct lattice vector, and unit-cell basis vector.*
 
 The inclusion of the :math:`\alpha,\alpha'` indices allows the interaction between spins to be anisotropic and include off-diagonal
 components. The simplest case is an identity matrix in these indices, multiplied by the magnitude of the interaction; this corresponds
-to the basic form given in the previous section. The more general form allows us to include:
+to the basic form given in the previous section. The most general form of the Heisenberg Hamiltonian allows us to describe the following exchange interactions:
 
 **Direct exchange**
-To maximize the separation of electrons (which repel under the Coulomb interaction) the antisymmetric spatial wavefunction is preferred.
-This therefore favours a symmetric spin wavefunction, with spins aligned along the same direction (ferromagnetism).
+This interaction involves magnetic moments that are sufficiently close in space to have onverlapping wavefunctions.
+When involving electrons within the same atom or molecule (intra-atomic or molecular), the direct exchange is generally positive and underlies Hund's rule --- i.e., the Coulomb repulsion between electrons generally favours an overall antisymmetric fermionic wavefunction that is spatially antisymmetric and spin symmetric.
+In the case of a solid, the direct exchange involves magnetic moments in electrical insulators that are localized on magnetic sites; it can be positive or negative --- in the former case favouring a parallel (ferromagnetic) alignmen of the magnetic moments, and in the latter case favouring an antiparallel (antiferromagnetic) alignmen of the magnetic moments :cite:`coronadoMolecularMagnetismMolecular1996`.
 
-This interaction populate the elements :math:`J_{\mathbf{R}b\mathbf{R}'b'}^{\alpha\alpha}`.
+These direct exchange interactions populate the elements :math:`J_{\mathbf{R}b\mathbf{R}'b'}^{\alpha\alpha}`, generally separated by a distance :math:`d= ||\mathbf{R}+\mathbf{\tau}_b-\mathbf{R}-\mathbf{\tau}_{b'}||` that is suffuciently small to allow overlap between wavedunctions (few :math:`\AA`).
 
 **Indirect exchange**
-The electrons of some intermediate part of the system affect
-the energies of the two spin states. For example, the superexchange mechanism, which is responsible for antiferromagnetism
-in some materials, involves electron interaction via an intermediate nonmagnetic atom.
-
-The interaction terms are the same as for direct exchange, where :math:`\alpha=\alpha'`
+This interaction involves magnetic moments that are spatially separated by distances sufficiently large to prevent significant wavefunction overlaps, and their coupling is mediated by an intermediary entity, such as an itinerant electron (RKKY interaction named after Ruderman,
+Kittel, Kasuya and Yosida, emerging in metals) or a intermediate nonmagnetic atom (superexchange interaction emerging in electrical insulators).
+These indirect interaction terms are also described by couplings :math:`J_{\mathbf{R}b\mathbf{R}'b'}^{\alpha\alpha}`, but involve a separation distance :math:`d= ||\mathbf{R}+\mathbf{\tau}_b-\mathbf{R}-\mathbf{\tau}_{b'}||` larger compared to the direct exchange case.
 
 **Kitaev interaction**
-An anisotropic, bond-directional interaction on 2D honeycomb lattices.
-
+This is an anisotropic, bond-directional interaction between spins in a 2D honeycomb lattices :cite:`kitaevAnyonsExactlySolved2006`.
 Depending on the direction of the bond, the interaction either takes the form :math:`J_{\mathbf{R}b\mathbf{R'}b'}^{xx}S_{\mathbf{R}b}^x S_{\mathbf{R'}b'}^x`,
-:math:`J_{\mathbf{R}b\mathbf{R'}b'}^{yy}S_{\mathbf{R}b}^y S_{\mathbf{R'}b}^y` or :math:`J_{\mathbf{R}b\mathbf{R'}b'}^{zz}S_{\mathbf{R}b}^z S_{\mathbf{R'}b'}^z`
+:math:`J_{\mathbf{R}b\mathbf{R'}b'}^{yy}S_{\mathbf{R}b}^y S_{\mathbf{R'}b}^y` or :math:`J_{\mathbf{R}b\mathbf{R'}b'}^{zz}S_{\mathbf{R}b}^z S_{\mathbf{R'}b'}^z`.
 
 
 **Dzyaloshinskii-Moriya interaction**
-An interaction associated with the vector product :math:`\mathbf{S}_1 \times \mathbf{S}_2` of two spin vectors, resulting
-from the spin-orbit interaction.
-
+This exchange originates from from the spin-orbit interaction, and it is described by an Hamiltonian involving the vector product between two spin vectors,  :math:`H_{1,2}=\mathbf{D}_{1,2}\cdot[\mathbf{S}_1 \times \mathbf{S}_2]` :cite:`coronadoMolecularMagnetismMolecular1996`.
 This interaction populate the elements :math:`J_{\mathbf{R}b\mathbf{R}'b'}^{\alpha\alpha'}` which are off-diagonal i.e. :math:`\alpha\ne\alpha'`
 
 Holstein-Primakoff Transformation
 ----------------------------------
 
-To describe quantized magnetic excitations, we want to write this Hamiltonian in terms of **creation and annihilation
-operators** in the formalism of **second quantization**.
+To describe quantized magnetic excitations, we want to write the Heisenberg Hamiltonian in the formalism of **second quantization**, i.e.,  in terms of **creation and annihilation operators**.
 
 Creation and annihilation operators
 ++++++++++++++++++++++++++++++++++++
 
-.. figure:: spin_flip.png
-   :figwidth: 600
+A magnetic excitation is a deviation from a the ground-state spin arrangement --- for example, we show in Fig. 4 an excitation created on top of a ferromagnetic ground state. 
 
-   Figure 1. The effect of the creation operator :math:`\hat{b}^{\dagger}_{\mathbf{R}b}` on a ferromagnetic ground state.
-
-A magnetic excitation causes deviation from a perfect ferromagnetic arrangement where all spins point in the same direction.
-Figure 1 shows the effect of a spin-flip operator on such a ground state.
-
+Within the second-quantization formalism, the creation or annihilation of these excitations is described by the following bosonic operators:
 * The operator :math:`\hat{b}^{\dagger}_{\mathbf{R}b}` creates a magnetic excitation at the site located at :math:`\mathbf{R}+\boldsymbol{\tau}_b`.
 * The operator :math:`\hat{b}_{\mathbf{R}b}` destroys a magnetic excitation at the site located at :math:`\mathbf{R}+\boldsymbol{\tau}_b`.
 
+.. figure:: spin_flip.png
+   :figwidth: 600
+
+   Excitation created by the operator :math:`\hat{b}^{\dagger}_{\mathbf{R}b}` on a ferromagnetic ground state.
+
 The creation and annihilation operators are akin to ladder operators, which we have already seen in the discussion of the
-spin angular momentum. Here, the creation and annihilation operators act on **number states**, and raise or lower the number of particles by one by
-moving between adjacent number states. A number state has a fixed number
-of particles; in this case a 'particle' is a magnetic excitation (more accurately a '**quasiparticle**')
+spin angular momentum. Here, the creation and annihilation operators act on **number states**, and raise or lower the number of **quasiparticle** excitations in the Fock state by one. Fock states are also called number states, since they are characterizeed by a fixed number
+of quasiparticles excitations (in this case these excitations are deviations of the magnetic-moment directions from the ground-state directions).
 
 Magnetic excitations change the spin by :math:`\hbar`, so they are quasiparticles of integer spin, which makes them bosons (fermions have half-integer spin).
-The important property of these operators in order that they describe **bosons** is that they must have the commutation relation
+The important property of these operators in order that they describe **bosons** is that they must statisfy the bosonic commutation relation
 
 .. math::
    :label: boson_commutation_relations
 
    \left[\hat{b}_{\mathbf{R}b}, \hat{b}^{\dagger}_{\mathbf{R'}b'} \right] = \delta_{\mathbf{R}\mathbf{R'}}\delta_{bb'}.
 
-From this, we may show directly by action on a **number state** that the operator :math:`\hat{n}_{\mathbf{R}b} = \hat{b}^{\dagger}_{\mathbf{R}b}\hat{b}_{\mathbf{R}b}`
-can be used to find the number of magnetic excitations present (the **number operator**).
+From this, we may show directly by action on a **number state** that the operator :math:`\hat{n}_{\mathbf{R}b} = \hat{b}^{\dagger}_{\mathbf{R}b}\hat{b}_{\mathbf{R}b}` can be used to find the number of magnetic excitations present (the **number operator**).
 
 Magnetic excitations
 ++++++++++++++++++++++
 
-The ferromagnetic ground state corresponds to maximum z-component of spin, so a magnetic excitation will lower this component,
-reducing the :math:`m` quantum number.
-We may then be tempted to associate the spin raising and lowering operators with the creation and annihilation operators above as
+Considering for example a ferromagnetic ground state, corresponding to spins all assuming upward z component, we have that the mimumum magnetic excitation will correspond to flipping one single spin component from upward to downward direction, reducing the :math:`m` quantum number by one.
 
-.. math::
-   :label: naive_operators
-
-   \hat{S}^{+}_{\mathbf{R}b} \sim \hat{b}_{\mathbf{R}b}
-
-   \hat{S}^{-}_{\mathbf{R}b} \sim \hat{b}^{\dagger}_{\mathbf{R}b},
-
-but doing so results in the wrong commutator for the spin component operators :math:`\hat{S}^x`, :math:`\hat{S}^y` and :math:`\hat{S}^z`.
-
-Instead, we must use the transformation due to Holstein and Primakoff :cite:`holstein1940`,
+Holstein and Primakoff :cite:`holstein1940` addressed the non-trivial problem of defining spin raising and lowering operators that enable to explore the Fock space 
 
 .. math::
    :label: holstein_primakoff
@@ -115,16 +94,17 @@ Instead, we must use the transformation due to Holstein and Primakoff :cite:`hol
 
    \hat{S}^{-}_{\mathbf{R}b} = \sqrt{2 S_{\mathbf{R}b}} \hat{b}^{\dagger}_{\mathbf{R}b} \left( 1 - \frac{\hat{b}^{\dagger}_{\mathbf{R}b}\hat{b}_{\mathbf{R}b}}{2 S_{\mathbf{R}b}} \right)^{\frac{1}{2}}
 
-which, it can be shown, results in the correct commutation relations for the components of spin. In addition, we see that the form
-of the bracket enforces that there is a minimum :math:`m` state as it will be zero when we try to excite a number of magnetic quasiparticles
-which exceeds :math:`2 S_{\mathbf{R}b}`. The z-component of spin will be
+where it can be shown that this transformation satisfies the commutation relations :math:`[\hat{S}^{+}_{\mathbf{R}b},\hat{S}^{-}_{\mathbf{R'}b'} ]= 2\hbar \hat{S}^z_{\mathbf{R}b}\delta_{\mathbf{R},\mathbf{R'}}\delta_{b,b'}` and :math:`[\hat{S}^{z}_{\mathbf{R}b},\hat{S}^{\pm}_{\mathbf{R'}b'} ]=\pm \hbar \hat{S}^{\pm}_{\mathbf{R}b}\delta_{\mathbf{R},\mathbf{R'}}\delta_{b,b'}`
+
+These commutation relations imply that the number of quasiparticles excitations that we can have at each site is limited to :math:`2 S_{\mathbf{R}b}The z-component of spin can be written as:
 
 .. math::
    :label: holstein_primakoff_z
 
    \hat{S}^z_{\mathbf{R}b} = S_{\mathbf{R}b} - \hat{b}^{\dagger}_{\mathbf{R}b}\hat{b}_{\mathbf{R}b} = S_{\mathbf{R}b} - \hat{n}_{\mathbf{R}b}.
 
-If the perturbation to the ground state is small, so that the expected number of magnetic excitations in a state satisfies
+where we defined the number operator :math:`\hat{n}_{\mathbf{R}b}= \hat{b}^{\dagger}_{\mathbf{R}b}\hat{b}_{\mathbf{R}b}`. 
+If the perturbation to the ground state is small, so that the expected number of excitations satisfies
 
 .. math::
    :label: holstein_primakoff_approx_condition
@@ -140,38 +120,28 @@ then we may use the binomial approximation on the bracket to obtain
 
    \hat{S}^{-}_{\mathbf{R}b} = \sqrt{2 S_{\mathbf{R}b}} \hat{b}^{\dagger}_{\mathbf{R}b},
 
-which is nothing more than our naive guess with an extra prefactor! In this approximation we still break the commutation
-relations for the spin components, but the perturbation to the ground state is small enough for this to have a negligible effect.
+This common linear approximation underlies **linear spin wave theory**, it breaks the commutation relations for the spin components, but the perturbation to the ground state is small enough for this to have a negligible effect.
 This is analogous to considering the commutation of rotations in 3D space; the smaller the size of the rotations, the less important
 the order in which they are applied will be.
-Therefore, although we have obtained the same result as our original guess, we better understand the conditions on its use.
 
-Given that spin is quantized, you may (very justifiably) feel uncomfortable with this last approximation. Since there is a minimum change of spin of :math:`\hbar`
-associated with a magnetic excitation, there appears to be a restriction preventing the perturbation from being arbitrarily small.
-However, we will later find that the eigenstate excitations are not localized spin excitations, but Fourier transformed excitations.
-This corresponds to an excitation smeared out over many sites, with a small average deviation on any individual site.
+We will see later that this approximation allows us to accurately describe excitation smeared out over many sites, with a small average deviation on individual sites.
 
 
 Rotated frame approach
 -----------------------
 
-We have obtained a transformation from the spin component operators to creation and annihilation operators
-which excite a single spin away from the ferromagnetic ground state. However, we wish to consider
-arbitrary spin ground states in which the spins are not necessarily aligned in the same direction. To do this, we use the
-rotated frame approach due to Toth and Lake :cite:`toth2015`.
+We have obtained a transformation from the spin component operators to creation and annihilation operators, and showed as example of their application to a magnetic ground state. We now want to consider arbitrary ground states, in which the spins are not necessarily aligned in the same direction. To do this, we use the rotated frame approach :cite:`toth2015`.
 
 .. figure:: rotated_frame.png
 
-   *Figure 2. A schematic showing the two types of rotation used to describe different ground sate spin configurations.*
+   *A schematic showing the two types of rotation used to describe different ground sate spin configurations.*
 
-We retain the operators we saw in the last section, and map the more general ground state onto a ferromagnetic ground state
-to allow us to use these operators. This requires expressing the actual ground state as a ferromagnetic ground state in which
-the spins are rotated by two types of rotation:
+We consider the operators defined in the last section, and to use them in the general case, we map the more general ground state onto a ferromagnetic ground state. This requires expressing the actual ground state in terms of rotations from a ferromagnetic ground state, and it is possible that this can be done considering two types of rotation:
 
 * A **site rotation**, :math:`Q^{site}_{b}` which determines how each spin in the unit cell at the origin is rotated from the ferromagnetic state.
 * A **cell rotation**, :math:`Q^{cell}_{\mathbf{R}}` which determines how much all of the spins are rotated between adjacent lattice cells.
 
-Figure 2 shows these two rotations in action. We then rewrite the Heisenberg Hamiltonian using these rotations,
+Fig. 5 shows these two rotations in action. We then rewrite the Heisenberg Hamiltonian using these rotations,
 
 .. math::
    :label: rotated_spin
@@ -193,9 +163,8 @@ The site rotation can be expressed in column-vector form as
 Since the ferromagnetic spin vector is just :math:`[0, 0, 1]` this means that :math:`\mathbf{q}_b^3` should be a unit vector
 in the direction of the spin, and with the other two vectors should form an orthonormal basis.
 
-To write the Hamiltonian in terms of :math:`\hat{b}_{\mathbf{R}b}` and :math:`\hat{b}_{\mathbf{R}b}^\dagger` we write in terms of
-:math:`S_{\mathbf{R}b}^{\pm}` and :math:`S_{\mathbf{R}b}^{z}` and use the transformation discussed in the previous section. We find
-that the factors of complex :math:`i` introduced by the conversion to :math:`S_{\mathbf{R}b}^{\pm}` makes it more natural to instead
+To write the Hamiltonian in terms of :math:`\hat{b}_{\mathbf{R}b}` and :math:`\hat{b}_{\mathbf{R}b}^\dagger`, we write in terms of
+:math:`S_{\mathbf{R}b}^{\pm}` and :math:`S_{\mathbf{R}b}^{z}` and use the linear-spin wave theory transformation discussed in the previous section. We find that the factors of complex :math:`i` introduced by the conversion to :math:`S_{\mathbf{R}b}^{\pm}` makes it more natural to
 use the vectors
 
 .. math::
@@ -222,11 +191,11 @@ A rotation axis should also be specified. Magnon takes :math:`\mathbf{k}_rot` an
 
 .. figure:: mag_ord.png
 
-   *Figure 3. Two different ways to represent an antiferromagnet: left, using a magnetic ordering wavevector; right, using a supercell. The left approach is preferrable.*
+   * Two physically equivalent ways to represent an antiferromagnet: left, using a magnetic ordering wavevector; right, using a supercell. The left approach is practically more convenient.*
 
 
 If it is possible to represent a structure using a magnetic ordering wavevector, it is better to represent it this way than
-manually building the ordering by inputting a supercell (the two options for a simple example are shown in Figure 3).
+manually building the ordering by inputting a supercell (the two options for a simple example are shown in Fig. 6).
 The supercell will not be the primitive cell, which will lead to spurious additional bands.
 
 Eigensolution
@@ -250,11 +219,11 @@ As with many excitations, we find that we need to Fourier transform to get the e
    \hat{b}_{\mathbf{R}b}^\dagger = \frac{1}{\sqrt{N}} \sum_{\mathbf{k}} \hat{b}_{\mathbf{k}b}^\dagger e^{-i\mathbf{k}\cdot (\mathbf{R}+\boldsymbol{\tau_b})}.
 
 The excitations created and destroyed by these operators are then **spin waves** or **magnons** rather than spin-flip excitations.
-A magnon represents a spin flip smeared out over many spins, as shown in Figure 4c.
+A magnon represents a spin flip smeared out over many spins, as shown in Fig. 7c.
 
 .. figure:: spin_excitations.png
 
-   *Figure 4. a) A ferromagnetic ground state; b) a spin flip excitation; c) a magnon excitation*
+   *a) A ferromagnetic ground state; b) a spin flip excitation on a ferromagnetic ground state; c) a magnon excitation*
 
 Spin Wave Hamiltonian
 ----------------------

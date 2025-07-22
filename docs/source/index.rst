@@ -1,9 +1,7 @@
 Magnon Bandstructures in Python
 =======================================
 
-**Magnon** is a Python library for calculating magnon bandstructures from exchange coupling interactions. It is designed
-to be intuitive and easy to use so that you can spend less time *calculating* bandstructures and more time *using* them
-to do interesting science.
+**Magnon** is a Python library integrated with ASE for fast and accurate simulations of linear spin-wave theory band structures. The code is versatile and applicable to a broad range of magnetic systems, including: collinear and non-collinear materials, systems with Q-commensurate magnetic ordering, and cases where the exchange coupling includes off-diagonal Cartesian components such as the Dzyaloshinskii-Moriya interaction (DMI) and Kitaev interactions. The library includes a set of propedeutically structured tutorials, and a self-explanatory API that can be straightforwardly integrated into computational workflows to simulate magnon properties with quantitative accuracy.
 
 Bandstructures in under 10 lines of code
 ----------------------------------------
