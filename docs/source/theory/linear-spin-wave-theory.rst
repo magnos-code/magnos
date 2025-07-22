@@ -332,7 +332,7 @@ and :math:`\mathcal{B}` is the 'Bogoliubov-de-Gennes'-type matrix,
    \end{pmatrix}.
 
 Commutator in Bogoliubov notation
-+++++++++++++++++++
+++++++++++++++++++++++++++++++++++++
 
 The commutator between the operators :math:`b_{\mathbf{k}\rho}` and :math:`b_{\mathbf{k}\rho'}^\dagger` can be evaluated through some algebra:
 
